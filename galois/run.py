@@ -76,7 +76,7 @@ def main(argv):
   except getopt.GetoptError:
     usage(1)
 
-  dir = "/specific/disk1/home/adamx/synch-proc/Galois-PQ/build/gcc5/apps/"
+  dir = "./build/debug/apps/"
   env = ""
 
   if "gcc5" in dir:
