@@ -6,9 +6,11 @@ set -o pipefail # needed in case we use a pipe in the script.
 
 # Build it (with debug flag).
 cd build
-mkdir debug
+mkdir -p debug
 cd debug
 cmake -DCMAKE_BUILD_TYPE=Debug ../..
-make install
+make -j # the -j makes it parallel
 
 # if completed succesfully, can go on now.
+echo -e "Build finished \e[32mSuccessfully\e[0m"
+

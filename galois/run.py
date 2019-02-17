@@ -96,6 +96,8 @@ def main(argv):
   for opt, arg in opts:
     if opt in ("-d", "--directory"):
       outdir = arg
+  if not os.path.exists(outdir):
+    os.mkdir(outdir)
 
   threads=20
   for opt, arg in opts:
