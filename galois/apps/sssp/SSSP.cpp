@@ -436,7 +436,18 @@ struct AsyncAlgo {
     typedef UpdateRequestComparer<UpdateRequest> Comparer;
     typedef UpdateRequestNodeComparer<UpdateRequest> NodeComparer;
     typedef UpdateRequestHasher<UpdateRequest> Hasher;
+    typedef GlobPQ<UpdateRequest, kLSMQ<UpdateRequest, UpdateRequestIndexer<UpdateRequest>, 1>> kLSM1;
+    typedef GlobPQ<UpdateRequest, kLSMQ<UpdateRequest, UpdateRequestIndexer<UpdateRequest>, 2>> kLSM2;
+    typedef GlobPQ<UpdateRequest, kLSMQ<UpdateRequest, UpdateRequestIndexer<UpdateRequest>, 4>> kLSM8;
+    typedef GlobPQ<UpdateRequest, kLSMQ<UpdateRequest, UpdateRequestIndexer<UpdateRequest>, 8>> kLSM8;
+    typedef GlobPQ<UpdateRequest, kLSMQ<UpdateRequest, UpdateRequestIndexer<UpdateRequest>, 16>> kLSM16;
+    typedef GlobPQ<UpdateRequest, kLSMQ<UpdateRequest, UpdateRequestIndexer<UpdateRequest>, 32>> kLSM32;
+    typedef GlobPQ<UpdateRequest, kLSMQ<UpdateRequest, UpdateRequestIndexer<UpdateRequest>, 64>> kLSM64;
+    typedef GlobPQ<UpdateRequest, kLSMQ<UpdateRequest, UpdateRequestIndexer<UpdateRequest>, 128>> kLSM128;
     typedef GlobPQ<UpdateRequest, kLSMQ<UpdateRequest, UpdateRequestIndexer<UpdateRequest>, 256>> kLSM256;
+    typedef GlobPQ<UpdateRequest, kLSMQ<UpdateRequest, UpdateRequestIndexer<UpdateRequest>, 512>> kLSM512;
+    typedef GlobPQ<UpdateRequest, kLSMQ<UpdateRequest, UpdateRequestIndexer<UpdateRequest>, 1024>> kLSM1024;
+    typedef GlobPQ<UpdateRequest, kLSMQ<UpdateRequest, UpdateRequestIndexer<UpdateRequest>, 2048>> kLSM2028;
     typedef GlobPQ<UpdateRequest, kLSMQ<UpdateRequest, UpdateRequestIndexer<UpdateRequest>, 4096>> kLSM4096;
     typedef GlobPQ<UpdateRequest, LockFreeSkipList<Comparer, UpdateRequest>> GPQ;
     typedef GlobPQ<UpdateRequest, LockFreeSkipList<NodeComparer, UpdateRequest>> GPQ_NC;
@@ -565,8 +576,30 @@ struct AsyncAlgo {
       Galois::for_each_local(initial, ProcessWithBreaks(this, graph), Galois::wl<HSWARMPQ_NC>());
     else if (wl == "ppq")
       Galois::for_each_local(initial, ProcessWithBreaks(this, graph), Galois::wl<PPQ>());
+    else if (wl == "klsm1")
+      Galois::for_each_local(initial, Process(this, graph), Galois::wl<kLSM1>());
+    else if (wl == "klsm2")
+      Galois::for_each_local(initial, Process(this, graph), Galois::wl<kLSM2>());
+    else if (wl == "klsm4")
+      Galois::for_each_local(initial, Process(this, graph), Galois::wl<kLSM4>());
+    else if (wl == "klsm8")
+      Galois::for_each_local(initial, Process(this, graph), Galois::wl<kLSM8>());
+    else if (wl == "klsm16")
+      Galois::for_each_local(initial, Process(this, graph), Galois::wl<kLSM16>());
+    else if (wl == "klsm32")
+      Galois::for_each_local(initial, Process(this, graph), Galois::wl<kLSM32>());
+    else if (wl == "klsm64")
+      Galois::for_each_local(initial, Process(this, graph), Galois::wl<kLSM64>());
+    else if (wl == "klsm128")
+      Galois::for_each_local(initial, Process(this, graph), Galois::wl<kLSM128>());
     else if (wl == "klsm256")
       Galois::for_each_local(initial, Process(this, graph), Galois::wl<kLSM256>());
+    else if (wl == "klsm512")
+      Galois::for_each_local(initial, Process(this, graph), Galois::wl<kLSM512>());
+    else if (wl == "klsm1024")
+      Galois::for_each_local(initial, Process(this, graph), Galois::wl<kLSM1024>());
+    else if (wl == "klsm2048")
+      Galois::for_each_local(initial, Process(this, graph), Galois::wl<kLSM2048>());  
     else if (wl == "klsm4096")
       Galois::for_each_local(initial, Process(this, graph), Galois::wl<kLSM4096>());
     else
