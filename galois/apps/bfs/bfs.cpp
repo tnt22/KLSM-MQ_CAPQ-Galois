@@ -430,9 +430,19 @@ struct AsyncAlgo {
     typedef OrderedByIntegerMetric<Indexer,GPQ> OBIM_BAG_SL;
     typedef OrderedByIntegerMetric<Indexer,GPQ_NC> OBIM_BAG_SL_NODECMP;
     typedef OrderedByIntegerMetric<Indexer,HMQ4> OBIM_BAG_HMQ4;
+    typedef GlobPQ<WorkItem, kLSMQ<WorkItem, Indexer, 1>> kLSM1;
+    typedef GlobPQ<WorkItem, kLSMQ<WorkItem, Indexer, 2>> kLSM2;
+    typedef GlobPQ<WorkItem, kLSMQ<WorkItem, Indexer, 4>> kLSM4;
+    typedef GlobPQ<WorkItem, kLSMQ<WorkItem, Indexer, 8>> kLSM8;
+    typedef GlobPQ<WorkItem, kLSMQ<WorkItem, Indexer, 16>> kLSM16;
+    typedef GlobPQ<WorkItem, kLSMQ<WorkItem, Indexer, 32>> kLSM32;
+    typedef GlobPQ<WorkItem, kLSMQ<WorkItem, Indexer, 64>> kLSM64;
+    typedef GlobPQ<WorkItem, kLSMQ<WorkItem, Indexer, 128>> kLSM128;
     typedef GlobPQ<WorkItem, kLSMQ<WorkItem, Indexer, 256>> kLSM256;
+    typedef GlobPQ<WorkItem, kLSMQ<WorkItem, Indexer, 512>> kLSM512;
+    typedef GlobPQ<WorkItem, kLSMQ<WorkItem, Indexer, 1024>> kLSM1024;
+    typedef GlobPQ<WorkItem, kLSMQ<WorkItem, Indexer, 2048>> kLSM2048;
     typedef GlobPQ<WorkItem, kLSMQ<WorkItem, Indexer, 4096>> kLSM4096;
-
     graph.getData(source).dist = 0;
 
     std::string wl = worklistname;
@@ -521,8 +531,30 @@ struct AsyncAlgo {
       Galois::for_each(WorkItem(source, 1), Process(graph), Galois::wl<HSWARMPQ_NC>());
     else if (wl == "ppq")
       Galois::for_each(WorkItem(source, 1), Process(graph), Galois::wl<PPQ>());
+    else if (wl == "klsm1")
+      Galois::for_each(WorkItem(source, 1), Process(graph), Galois::wl<kLSM1>());
+    else if (wl == "klsm2")
+      Galois::for_each(WorkItem(source, 1), Process(graph), Galois::wl<kLSM2>());
+    else if (wl == "klsm4")
+      Galois::for_each(WorkItem(source, 1), Process(graph), Galois::wl<kLSM4>());
+    else if (wl == "klsm8")
+      Galois::for_each(WorkItem(source, 1), Process(graph), Galois::wl<kLSM8>());
+    else if (wl == "klsm16")
+      Galois::for_each(WorkItem(source, 1), Process(graph), Galois::wl<kLSM16>());
+    else if (wl == "klsm32")
+      Galois::for_each(WorkItem(source, 1), Process(graph), Galois::wl<kLSM32>());
+    else if (wl == "klsm64")
+      Galois::for_each(WorkItem(source, 1), Process(graph), Galois::wl<kLSM64>());
+    else if (wl == "klsm128")
+      Galois::for_each(WorkItem(source, 1), Process(graph), Galois::wl<kLSM128>());
     else if (wl == "klsm256")
       Galois::for_each(WorkItem(source, 1), Process(graph), Galois::wl<kLSM256>());
+    else if (wl == "klsm512")
+      Galois::for_each(WorkItem(source, 1), Process(graph), Galois::wl<kLSM512>());
+    else if (wl == "klsm1024")
+      Galois::for_each(WorkItem(source, 1), Process(graph), Galois::wl<kLSM1024>());
+     else if (wl == "klsm2048")
+      Galois::for_each(WorkItem(source, 1), Process(graph), Galois::wl<kLSM2048>());
     else if (wl == "klsm4096")
       Galois::for_each(WorkItem(source, 1), Process(graph), Galois::wl<kLSM4096>());
     else
