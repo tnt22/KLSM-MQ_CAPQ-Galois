@@ -555,7 +555,18 @@ struct AsyncPri{
     typedef VectorOrderedByIntegerMetric<sndPri, Chunk, 10> VECOBIM;
     typedef VectorOrderedByIntegerMetric<sndPri, noChunk, 10> VECOBIM_NOCHUNK;
     typedef VectorOrderedByIntegerMetric<sndPri, globNoChunk, 10> VECOBIM_GLOB_NOCHUNK;
+    typedef GlobPQ<std::pair<GNode, int>, kLSMQ<std::pair<GNode, int>, sndPri, 1>> kLSM1;
+    typedef GlobPQ<std::pair<GNode, int>, kLSMQ<std::pair<GNode, int>, sndPri, 2>> kLSM2;
+    typedef GlobPQ<std::pair<GNode, int>, kLSMQ<std::pair<GNode, int>, sndPri, 4>> kLSM4;
+    typedef GlobPQ<std::pair<GNode, int>, kLSMQ<std::pair<GNode, int>, sndPri, 8>> kLSM8;
+    typedef GlobPQ<std::pair<GNode, int>, kLSMQ<std::pair<GNode, int>, sndPri, 16>> kLSM16;
+    typedef GlobPQ<std::pair<GNode, int>, kLSMQ<std::pair<GNode, int>, sndPri, 32>> kLSM32;
+    typedef GlobPQ<std::pair<GNode, int>, kLSMQ<std::pair<GNode, int>, sndPri, 64>> kLSM64;
+    typedef GlobPQ<std::pair<GNode, int>, kLSMQ<std::pair<GNode, int>, sndPri, 128>> kLSM128;
     typedef GlobPQ<std::pair<GNode, int>, kLSMQ<std::pair<GNode, int>, sndPri, 256>> kLSM256;
+    typedef GlobPQ<std::pair<GNode, int>, kLSMQ<std::pair<GNode, int>, sndPri, 512>> kLSM512;
+    typedef GlobPQ<std::pair<GNode, int>, kLSMQ<std::pair<GNode, int>, sndPri, 1024>> kLSM1024;
+    typedef GlobPQ<std::pair<GNode, int>, kLSMQ<std::pair<GNode, int>, sndPri, 2048>> kLSM2048;
     typedef GlobPQ<std::pair<GNode, int>, kLSMQ<std::pair<GNode, int>, sndPri, 4096>> kLSM4096;
 
     PRPri pri(graph, tolerance);
@@ -690,10 +701,55 @@ struct AsyncPri{
       Galois::for_each(boost::make_transform_iterator(graph.begin(), std::ref(fn)),
                      boost::make_transform_iterator(graph.end(), std::ref(fn)),
                      Process(graph, tolerance, amp), Galois::wl<PPQ>());
+		     
+else if (wl == "klsm1")
+      Galois::for_each(boost::make_transform_iterator(graph.begin(), std::ref(fn)),
+                     boost::make_transform_iterator(graph.end(), std::ref(fn)),
+                     Process(graph, tolerance, amp), Galois::wl<kLSM1>();
+    else if (wl == "klsm2")
+      Galois::for_each(boost::make_transform_iterator(graph.begin(), std::ref(fn)),
+                     boost::make_transform_iterator(graph.end(), std::ref(fn)),
+                     Process(graph, tolerance, amp), Galois::wl<kLSM2>());
+    else if (wl == "klsm4")
+      Galois::for_each(boost::make_transform_iterator(graph.begin(), std::ref(fn)),
+                     boost::make_transform_iterator(graph.end(), std::ref(fn)),
+                     Process(graph, tolerance, amp), Galois::wl<kLSM4>());
+    else if (wl == "klsm8")
+      Galois::for_each(boost::make_transform_iterator(graph.begin(), std::ref(fn)),
+                     boost::make_transform_iterator(graph.end(), std::ref(fn)),
+                     Process(graph, tolerance, amp), Galois::wl<kLSM8>());
+    else if (wl == "klsm16")
+      Galois::for_each(boost::make_transform_iterator(graph.begin(), std::ref(fn)),
+                     boost::make_transform_iterator(graph.end(), std::ref(fn)),
+                     Process(graph, tolerance, amp), Galois::wl<kLSM16>());
+    else if (wl == "klsm32")
+      Galois::for_each(boost::make_transform_iterator(graph.begin(), std::ref(fn)),
+                     boost::make_transform_iterator(graph.end(), std::ref(fn)),
+                     Process(graph, tolerance, amp), Galois::wl<kLSM32>());
+    else if (wl == "klsm64")
+      Galois::for_each(boost::make_transform_iterator(graph.begin(), std::ref(fn)),
+                     boost::make_transform_iterator(graph.end(), std::ref(fn)),
+                     Process(graph, tolerance, amp), Galois::wl<kLSM64>());
+    else if (wl == "klsm128")
+      Galois::for_each(boost::make_transform_iterator(graph.begin(), std::ref(fn)),
+                     boost::make_transform_iterator(graph.end(), std::ref(fn)),
+                     Process(graph, tolerance, amp), Galois::wl<kLSM128>());
     else if (wl == "klsm256")
       Galois::for_each(boost::make_transform_iterator(graph.begin(), std::ref(fn)),
                      boost::make_transform_iterator(graph.end(), std::ref(fn)),
                      Process(graph, tolerance, amp), Galois::wl<kLSM256>());
+    else if (wl == "klsm512")
+      Galois::for_each(boost::make_transform_iterator(graph.begin(), std::ref(fn)),
+                     boost::make_transform_iterator(graph.end(), std::ref(fn)),
+                     Process(graph, tolerance, amp), Galois::wl<kLSM512>());
+    else if (wl == "klsm1024")
+      Galois::for_each(boost::make_transform_iterator(graph.begin(), std::ref(fn)),
+                     boost::make_transform_iterator(graph.end(), std::ref(fn)),
+                     Process(graph, tolerance, amp), Galois::wl<kLSM1024>());
+    else if (wl == "klsm2048")
+      Galois::for_each(boost::make_transform_iterator(graph.begin(), std::ref(fn)),
+                     boost::make_transform_iterator(graph.end(), std::ref(fn)),
+                     Process(graph, tolerance, amp), Galois::wl<kLSM2048>());
     else if (wl == "klsm4096")
       Galois::for_each(boost::make_transform_iterator(graph.begin(), std::ref(fn)),
                      boost::make_transform_iterator(graph.end(), std::ref(fn)),
