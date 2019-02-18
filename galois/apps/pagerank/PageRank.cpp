@@ -705,7 +705,7 @@ struct AsyncPri{
 else if (wl == "klsm1")
       Galois::for_each(boost::make_transform_iterator(graph.begin(), std::ref(fn)),
                      boost::make_transform_iterator(graph.end(), std::ref(fn)),
-                     Process(graph, tolerance, amp), Galois::wl<kLSM1>();
+                     Process(graph, tolerance, amp), Galois::wl<kLSM1>());
     else if (wl == "klsm2")
       Galois::for_each(boost::make_transform_iterator(graph.begin(), std::ref(fn)),
                      boost::make_transform_iterator(graph.end(), std::ref(fn)),
