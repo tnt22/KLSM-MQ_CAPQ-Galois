@@ -19,7 +19,10 @@
 
 template <class K, class V, int Rlx>
 k_lsm<K, V, Rlx>::k_lsm() : qInsertTime("qInsertTime"), 
-                            qDeleteTime("qDeleteTime")
+                            qDeleteTimeLocal("qDeleteTimeLocal"),
+                            qDeleteTimeShared("qDeleteTimeShared"), 
+                            qDeleteTimeSpy("qDeleteTimeSpy"), 
+                            qDeleteTimeEverythingElse("qDeleteTimeEverythingElse")
 {
 }
 
