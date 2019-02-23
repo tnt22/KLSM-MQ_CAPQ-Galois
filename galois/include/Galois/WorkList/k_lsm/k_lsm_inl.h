@@ -104,30 +104,63 @@ k_lsm<K, V, Rlx>::delete_min(K &key, V &val)
             best_dist = block<K, V>::peek_t::EMPTY(),
             best_shared = block<K, V>::peek_t::EMPTY();
 
-    do {
+    Timer tt(true);
+    do
+    {
+        tt.start();
         m_dist.find_min(best_dist);
-        m_shared.find_min(best_shared);
+        tt.stop();
+        qDeleteTimeLocal += tt.get();
 
-        if (!best_dist.empty() && !best_shared.empty()) {
-            if (best_dist.m_key <= best_shared.m_key) {
+        tt.start();
+        m_shared.find_min(best_shared);
+        tt.stop();
+        qDeleteTimeShared += tt.get();
+
+        tt.start();
+        if (!best_dist.empty() && !best_shared.empty())
+        {
+            if (best_dist.m_key <= best_shared.m_key)
+            {
                 COUNT_INC(dlsm_deletes);
+                tt.stop();
+                qDeleteTimeEverythingElse += tt.get();
                 return best_dist.take(key, val);
-            } else {
+            }
+            else
+            {
                 COUNT_INC(slsm_deletes);
+                tt.stop();
+                qDeleteTimeEverythingElse += tt.get();
                 return best_shared.take(key, val);
             }
         }
 
-        if (!best_dist.empty() /* and best_shared is empty */) {
+        if (!best_dist.empty() /* and best_shared is empty */)
+        {
             COUNT_INC(dlsm_deletes);
+            tt.stop();
+            qDeleteTimeEverythingElse += tt.get();
             return best_dist.take(key, val);
         }
 
-        if (!best_shared.empty() /* and best_dist is empty */) {
+        if (!best_shared.empty() /* and best_dist is empty */)
+        {
             COUNT_INC(slsm_deletes);
+            tt.stop();
+            qDeleteTimeEverythingElse += tt.get();
             return best_shared.take(key, val);
         }
-    } while (m_dist.spy() > 0);
+        tt.stop();
+        qDeleteTimeEverythingElse += tt.get();
+
+        tt.start();
+        auto shouldExit = (m_dist.spy() > 0);
+        tt.stop();
+        qDeleteTimeSpy += tt.get();
+        if (shouldExit)
+            break;
+    } while (1);
 
     return false;
 }
@@ -137,8 +170,5 @@ bool
 k_lsm<K, V, Rlx>::delete_min(V &val)
 {
     K key;
-    Timer tt(true);
-    auto res = delete_min(key, val);
-    qDeleteTime += tt.sample();
-    return res;
+    return delete_min(key, val);
 }
