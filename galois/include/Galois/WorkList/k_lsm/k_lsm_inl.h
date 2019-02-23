@@ -18,7 +18,8 @@
  */
 
 template <class K, class V, int Rlx>
-k_lsm<K, V, Rlx>::k_lsm()
+k_lsm<K, V, Rlx>::k_lsm() : qInsertTime("qInsertTime"), 
+                            qDeleteTime("qDeleteTime")
 {
 }
 
@@ -77,7 +78,9 @@ k_lsm<K, V, Rlx>::insert(const K &key,
      * It seems best to start with option 1), optimizing to 1a) in the future.
      */
 
+    Timer tt(true);
     m_dist.insert(key, val, &m_shared);
+    qInsertTime += tt.get();
 }
 
 template <class K, class V, int Rlx>
@@ -134,5 +137,8 @@ bool
 k_lsm<K, V, Rlx>::delete_min(V &val)
 {
     K key;
-    return delete_min(key, val);
+    Timer tt(true);
+    auto res = delete_min(key, val);
+    qInsertTime += tt.get();
+    return res;
 }
