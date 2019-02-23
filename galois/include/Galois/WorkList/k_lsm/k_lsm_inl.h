@@ -158,10 +158,10 @@ k_lsm<K, V, Rlx>::delete_min(K &key, V &val)
         qDeleteTimeEverythingElse += tt.get();
 
         tt.start();
-        auto shouldExit = (m_dist.spy() > 0);
+        auto shouldContinue = (m_dist.spy() > 0);
         tt.stop();
         qDeleteTimeSpy += tt.get();
-        if (shouldExit)
+        if (!shouldContinue)
             break;
     } while (1);
 
