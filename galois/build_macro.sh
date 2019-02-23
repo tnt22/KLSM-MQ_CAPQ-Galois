@@ -9,7 +9,7 @@ cd build
 mkdir -p debug
 cd debug
 cmake -DCMAKE_BUILD_TYPE=Debug ../..
-make -j # the -j makes it parallel
+make sssp -j # the -j makes it parallel
 
 # if completed succesfully, can go on now.
 echo -e "Build finished \e[32mSuccessfully\e[0m"

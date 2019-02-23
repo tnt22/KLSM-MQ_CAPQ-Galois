@@ -23,6 +23,7 @@
 #include "dist_lsm.h"
 #include "shared_lsm.h"
 #include "counters.h"
+#include "Galois/Statistic.h"
 
 namespace kpq {
 
@@ -39,6 +40,10 @@ namespace kpq {
 
 template <class K, class V, int Rlx>
 class k_lsm {
+
+typedef Galois::Timer Timer;
+typedef Galois::Statistic Statistic;
+
 public:
     k_lsm();
     virtual ~k_lsm() { }

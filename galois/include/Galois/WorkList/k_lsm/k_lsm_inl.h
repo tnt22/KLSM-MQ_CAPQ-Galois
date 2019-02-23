@@ -80,7 +80,7 @@ k_lsm<K, V, Rlx>::insert(const K &key,
 
     Timer tt(true);
     m_dist.insert(key, val, &m_shared);
-    qInsertTime += tt.get();
+    qInsertTime += tt.sample();
 }
 
 template <class K, class V, int Rlx>
@@ -139,6 +139,6 @@ k_lsm<K, V, Rlx>::delete_min(V &val)
     K key;
     Timer tt(true);
     auto res = delete_min(key, val);
-    qInsertTime += tt.get();
+    qDeleteTime += tt.sample();
     return res;
 }

@@ -17,11 +17,13 @@ runs_per_benchmark=1
 out_dir="kessler_test"
 standard_parameters="-m libc -D 0 -d $out_dir sssp"
 
-rm -r $out_dir
+if [ -d "$out_dir" ]; then 
+    rm -r "$out_dir"
+fi
 
-for g in scalefree/rmat16p-2e24.gr # scalefree/rmat16p-2e27.gr road/USA-road-d.USA.gr road/USA-road-t.USA.gr ljournal-2008.gr twitter40.gr random/r4-2e24.gr planar10M.bin scalefree/rmat-large.gr road/USA-road-d.USA.gr road/USA-road-t.USA.gr # clique4000.bin
+for g in random/r4-2e24.gr #scalefree/rmat16p-2e24.gr scalefree/rmat16p-2e27.gr road/USA-road-d.USA.gr road/USA-road-t.USA.gr ljournal-2008.gr twitter40.gr random/r4-2e24.gr planar10M.bin scalefree/rmat-large.gr road/USA-road-d.USA.gr road/USA-road-t.USA.gr # clique4000.bin
 do
-    for threads_number in 32
+    for threads_number in 64
     do
         for worklist_type in klsm256
         do
