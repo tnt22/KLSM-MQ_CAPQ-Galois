@@ -22,7 +22,9 @@ dist_lsm_local<K, V, Rlx>::dist_lsm_local() :
     m_head(nullptr),
     m_tail(nullptr),
     m_spied(nullptr),
-    m_cached_best(block<K, V>::peek_t::EMPTY())
+    m_cached_best(block<K, V>::peek_t::EMPTY()),
+    qInsertTimeLocal("qInsertTimeLocal"), 
+    qInsertTimeShared("qInsertTimeShared")
 {
 }
 

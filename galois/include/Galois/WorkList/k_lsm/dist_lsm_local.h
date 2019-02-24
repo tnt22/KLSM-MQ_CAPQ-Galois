@@ -101,7 +101,7 @@ private:
 
     xorshf96 m_gen;
     Timer localTimer;
-    Statistic qInsertTimeLocal = Statistic("qInsertTimeLocal"), qInsertTimeShared = Statistic("qInsertTimeShared");
+    Statistic qInsertTimeLocal, qInsertTimeShared;
 };
 
 #include "dist_lsm_local_inl.h"
