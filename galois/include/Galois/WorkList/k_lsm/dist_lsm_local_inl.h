@@ -39,6 +39,8 @@ dist_lsm_local<K, V, Rlx>::insert(const K &key,
                                   const V &val,
                                   shared_lsm<K, V, Rlx> *slsm)
 {
+    localTimer.start();
+    
     item<K, V> *it = m_item_allocator.acquire();
     it->initialize(key, val);
 
@@ -70,6 +72,8 @@ dist_lsm_local<K, V, Rlx>::insert(item<K, V> *it,
     new_block->insert(it, version);
 
     merge_insert(new_block, slsm);
+    Timer.stop();
+    qInsertTimeLocal += Timer.get();
 }
 
 template <class K, class V, int Rlx>
@@ -108,6 +112,10 @@ dist_lsm_local<K, V, Rlx>::merge_insert(block<K, V> *const new_block,
          * TODO: Optimize this by allocating the block from the shared lsm
          * if we are about to merge into a block exceeding the relaxation bound.
          */
+        Timer.stop();
+        qInsertTimeLocal += Timer.get();
+        Timer.start();
+
         slsm->insert(insert_block);
         insert_block->set_unused();
 
@@ -117,6 +125,10 @@ dist_lsm_local<K, V, Rlx>::merge_insert(block<K, V> *const new_block,
             m_head.store(nullptr, std::memory_order_relaxed);
         }
         m_tail = other_block;
+
+        Timer.stop();
+        qInsertTimeShared += Timer.get();
+        Timer.start();
     } else {
         /* Insert the new block into the list. */
         insert_block->m_prev = other_block;

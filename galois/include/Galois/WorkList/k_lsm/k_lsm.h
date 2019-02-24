@@ -62,7 +62,7 @@ private:
     dist_lsm<K, V, Rlx>   m_dist;
     shared_lsm<K, V, Rlx> m_shared;
     void init_qstat();
-    Statistic qInsertTime, qDeleteTimeLocal, qDeleteTimeShared, qDeleteTimeSpy, qDeleteTimeEverythingElse;
+    Statistic qDeleteTimeLocal, qDeleteTimeShared, qDeleteTimeSpy, qDeleteTimeEverythingElse;
 };
 
 #include "k_lsm_inl.h"

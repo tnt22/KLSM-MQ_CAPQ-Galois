@@ -27,6 +27,7 @@
 #include "counters.h"
 #include "mm.h"
 #include "xorshf96.h"
+#include "Galois/Statistic.h"
 
 namespace kpq
 {
@@ -40,6 +41,9 @@ class shared_lsm;
 template <class K, class V, int Rlx>
 class dist_lsm_local
 {
+    typedef Galois::Timer Timer;
+    typedef Galois::Statistic Statistic;
+
 public:
     dist_lsm_local();
     virtual ~dist_lsm_local();
@@ -96,6 +100,8 @@ private:
     typename block<K, V>::peek_t m_cached_best;
 
     xorshf96 m_gen;
+    Timer localTimer;
+    Statistic qInsertTimeLocal = Statistic("qInsertTimeLocal"), qInsertTimeShared = Statistic("qInsertTimeShared");
 };
 
 #include "dist_lsm_local_inl.h"
