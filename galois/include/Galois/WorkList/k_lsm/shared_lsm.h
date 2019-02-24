@@ -59,7 +59,7 @@ private:
     thread_local_ptr<shared_lsm_local<K, V, Rlx>> m_local_component;
 };
 
-#include "shared_lsm_inl.h"
+ #include "shared_lsm_inl.h"
 
 }
 

@@ -36,13 +36,11 @@ template <class K, class V, int Rlx>
 class dist_lsm;
 
 template <class K, class V, int Rlx>
-class shared_lsm;
-
-template <class K, class V, int Rlx>
 class dist_lsm_local
 {
     typedef Galois::Timer Timer;
     typedef Galois::Statistic Statistic;
+    typedef Galois::WorkList::LockFreeSkipList<std::less<K>, K> LockFreeSkipList;
 
 public:
     dist_lsm_local();
@@ -50,7 +48,7 @@ public:
 
     void insert(const K &key,
                 const V &val,
-                shared_lsm<K, V, Rlx> *slsm);
+                LockFreeSkipList *slsm);
     bool delete_min(dist_lsm<K, V, Rlx> *parent,
                     V &val);
     bool delete_min(dist_lsm<K, V, Rlx> *parent,
@@ -78,14 +76,14 @@ private:
     /** The internal insertion, used both in the public insert() and in spy(). */
     void insert(item<K, V> *it,
                 const version_t version,
-                shared_lsm<K, V, Rlx> *slsm);
+                LockFreeSkipList *slsm);
 
     /**
      * Inserts new_block into the linked list of blocks, merging with
      * same size blocks until no two blocks in the list have the same size.
      */
     void merge_insert(block<K, V> *const new_block,
-                      shared_lsm<K, V, Rlx> *slsm);
+                      LockFreeSkipList *slsm);
 
 private:
     std::atomic<block<K, V> *> m_head; /**< The largest  block. */

@@ -36,7 +36,7 @@ template <class K, class V, int Rlx>
 void
 dist_lsm<K, V, Rlx>::insert(const K &key,
                             const V &val,
-                            shared_lsm<K, V, Rlx> *slsm)
+                            LockFreeSkipList *slsm)
 {
     m_local.get()->insert(key, val, slsm);
 }

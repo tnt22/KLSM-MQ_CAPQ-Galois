@@ -21,7 +21,7 @@
 #define __DIST_LSM_H
 
 #include "dist_lsm_local.h"
-#include "shared_lsm.h"
+#include "Galois/WorkList/WorkListHelpers.h"
 
 namespace kpq
 {
@@ -30,6 +30,7 @@ template <class K, class V, int Rlx>
 class dist_lsm
 {
     friend int dist_lsm_local<K, V, Rlx>::spy(dist_lsm<K, V, Rlx> *parent);
+    typedef Galois::WorkList::LockFreeSkipList<std::less<K>, K> LockFreeSkipList;
 
 public:
 
@@ -47,7 +48,7 @@ public:
      */
     void insert(const K &key,
                 const V &val,
-                shared_lsm<K, V, Rlx> *slsm);
+                LockFreeSkipList *slsm);
 
     /**
      * Attempts to remove the locally (i.e. on the current thread) minimal item.

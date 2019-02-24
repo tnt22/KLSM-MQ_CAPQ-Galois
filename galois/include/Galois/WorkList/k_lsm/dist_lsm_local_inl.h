@@ -39,7 +39,7 @@ template <class K, class V, int Rlx>
 void
 dist_lsm_local<K, V, Rlx>::insert(const K &key,
                                   const V &val,
-                                  shared_lsm<K, V, Rlx> *slsm)
+                                  LockFreeSkipList *slsm)
 {
     localTimer.start();
     
@@ -53,7 +53,7 @@ template <class K, class V, int Rlx>
 void
 dist_lsm_local<K, V, Rlx>::insert(item<K, V> *it,
                                   const version_t version,
-                                  shared_lsm<K, V, Rlx> *slsm)
+                                  LockFreeSkipList *slsm)
 {
     const K it_key = it->key();
 
@@ -81,7 +81,7 @@ dist_lsm_local<K, V, Rlx>::insert(item<K, V> *it,
 template <class K, class V, int Rlx>
 void
 dist_lsm_local<K, V, Rlx>::merge_insert(block<K, V> *const new_block,
-                                        shared_lsm<K, V, Rlx> *slsm)
+                                        LockFreeSkipList *slsm)
 {
     block<K, V> *insert_block = new_block;
     block<K, V> *other_block  = m_tail;

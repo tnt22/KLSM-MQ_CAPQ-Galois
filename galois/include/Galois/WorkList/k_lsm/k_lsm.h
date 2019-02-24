@@ -20,10 +20,13 @@
 #ifndef __K_LSM_H
 #define __K_LSM_H
 
+#include <functional>
+
 #include "dist_lsm.h"
 #include "shared_lsm.h"
 #include "counters.h"
 #include "Galois/Statistic.h"
+#include "Galois/WorkList/WorkListHelpers.h"
 
 namespace kpq {
 
@@ -43,6 +46,7 @@ class k_lsm {
 
 typedef Galois::Timer Timer;
 typedef Galois::Statistic Statistic;
+typedef Galois::WorkList::LockFreeSkipList<std::less<K>, K> LockFreeSkipList;
 
 public:
     k_lsm();
@@ -60,7 +64,7 @@ public:
 
 private:
     dist_lsm<K, V, Rlx>   m_dist;
-    shared_lsm<K, V, Rlx> m_shared;
+    LockFreeSkipList m_shared;
     void init_qstat();
     Statistic qDeleteTimeLocal, qDeleteTimeShared, qDeleteTimeSpy, qDeleteTimeEverythingElse;
 };
