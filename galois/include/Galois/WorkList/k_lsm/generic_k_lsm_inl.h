@@ -1,5 +1,5 @@
 /*
- *  Copyright 2015 Jakob Gruber
+ *  Copyright 2015 Jakob Gruber & Ido Kessler, Tal Leibovitch and Gilad Fudim
  *
  *  This file is part of kpqueue.
  *
@@ -17,22 +17,20 @@
  *  along with kpqueue.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-template <class K, class V, int Rlx>
-k_lsm<K, V, Rlx>::k_lsm()
+template <class K, class V, int Rlx, class PQ>
+generic_k_lsm<K, V, Rlx, PQ>::generic_k_lsm()
 {
 }
 
-template <class K, class V, int Rlx>
-void
-k_lsm<K, V, Rlx>::insert(const K &key)
+template <class K, class V, int Rlx, class PQ>
+void generic_k_lsm<K, V, Rlx, PQ>::insert(const K &key)
 {
     insert(key, key);
 }
 
-template <class K, class V, int Rlx>
-void
-k_lsm<K, V, Rlx>::insert(const K &key,
-                         const V &val)
+template <class K, class V, int Rlx, class PQ>
+void generic_k_lsm<K, V, Rlx, PQ>::insert(const K &key,
+                                          const V &val)
 {
     /* Insert into the distributed lsm; if the largest block is large enough
      * (i.e. the next-largest block size would exceed the relaxation bounds),
@@ -80,9 +78,8 @@ k_lsm<K, V, Rlx>::insert(const K &key,
     m_dist.insert(key, val, &m_shared);
 }
 
-template <class K, class V, int Rlx>
-bool
-k_lsm<K, V, Rlx>::delete_min(K &key, V &val)
+template <class K, class V, int Rlx, class PQ>
+int generic_k_lsm<K, V, Rlx, PQ>::delete_min(K &key, V &val, V &val2)
 {
     /* Load the best item from the local distributed lsm, and the (relaxed)
      * best item from the global lsm, and return the best of both.
@@ -98,41 +95,52 @@ k_lsm<K, V, Rlx>::delete_min(K &key, V &val)
      */
 
     typename block<K, V>::peek_t
-            best_dist = block<K, V>::peek_t::EMPTY(),
-            best_shared = block<K, V>::peek_t::EMPTY();
+        best_dist = block<K, V>::peek_t::EMPTY();
+    V best_shared;
 
-    do {
+    bool got_best_shared, got_best_dist;
+    do
+    {
         m_dist.find_min(best_dist);
-        m_shared.find_min(best_shared);
+        got_best_dist = !best_dist.empty();
+        got_best_shared = m_shared.try_pop(best_shared);
 
-        if (!best_dist.empty() && !best_shared.empty()) {
-            if (best_dist.m_key <= best_shared.m_key) {
+        if (got_best_dist && got_best_shared)
+        {
+            if (best_dist.m_item->val() < best_shared)
+            {
                 COUNT_INC(dlsm_deletes);
-                return best_dist.take(key, val);
-            } else {
+                best_dist.take(key, val);
+                val2 = best_shared;
+                return 2;
+            }
+            else
+            {
                 COUNT_INC(slsm_deletes);
-                return best_shared.take(key, val);
+                val = best_shared;
+                return 1;
             }
         }
 
-        if (!best_dist.empty() /* and best_shared is empty */) {
+        if (got_best_dist)
+        {
             COUNT_INC(dlsm_deletes);
-            return best_dist.take(key, val);
+            return best_dist.take(key, val) ? 1 : 0;
         }
 
-        if (!best_shared.empty() /* and best_dist is empty */) {
+        if (got_best_shared)
+        {
             COUNT_INC(slsm_deletes);
-            return best_shared.take(key, val);
+            val = best_shared;
+            return 1;
         }
     } while (m_dist.spy() > 0);
-
-    return false;
+    return 0;
 }
 
-template <class K, class V, int Rlx>
-bool
-k_lsm<K, V, Rlx>::delete_min(V &val)
+template <class K, class V, int Rlx, class PQ>
+int generic_k_lsm<K, V, Rlx, PQ>::delete_min(V &val, V &val2)
 {
     K key;
-    return delete_min(key, val);
+    return delete_min(key, val, val2);
 }

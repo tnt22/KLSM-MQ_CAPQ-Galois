@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "padded_types.h": "c",
+        "locks.h": "c"
+    }
+}

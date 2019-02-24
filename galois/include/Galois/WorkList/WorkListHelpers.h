@@ -36,6 +36,8 @@
 #include "Galois/Runtime/ll/PtrLock.h"
 
 #include "k_lsm/k_lsm.h"
+#include "k_lsm/generic_k_lsm.h"
+#include "capq/capq.h"
 
 #include <boost/iterator/iterator_facade.hpp>
 #include <boost/heap/d_ary_heap.hpp>
@@ -1495,6 +1497,27 @@ public:
 
     bool try_pop(K& key) {
       return pq.delete_min(key);
+    }
+};
+
+template<typename K, class Indexer, int Rlx, class PQ>
+class kLSMQ_generic {
+    // kpq::k_lsm key MUST be unsigned
+    kpq::generic_k_lsm<unsigned long, K, Rlx, PQ> pq;
+    Indexer indexer;
+
+public:
+    bool push(const K& key) {
+      pq.insert((unsigned long)indexer(key), key);
+      return true;
+    }
+
+    bool try_pop(K& key) {
+      K key2;
+      int res = pq.delete_min(key, key2);
+      if(res==0) return false;
+      if(res==2) push(key2);
+      return true;
     }
 };
 

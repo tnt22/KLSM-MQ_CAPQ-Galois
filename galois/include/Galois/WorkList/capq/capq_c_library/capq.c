@@ -85,7 +85,7 @@
 // Garbage collection related
 
 static int gc_id;
-extern __thread ptst_t *ptst;
+__thread ptst_t *ptst;
 
 // Data structures
 

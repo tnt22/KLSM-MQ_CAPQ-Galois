@@ -17,8 +17,8 @@
  *  along with kpqueue.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-template <class K, class V, int Rlx>
-dist_lsm_local<K, V, Rlx>::dist_lsm_local() :
+template <class K, class V, int Rlx, class PQ>
+generic_dist_lsm_local<K, V, Rlx, PQ>::generic_dist_lsm_local() :
     m_head(nullptr),
     m_tail(nullptr),
     m_spied(nullptr),
@@ -26,18 +26,18 @@ dist_lsm_local<K, V, Rlx>::dist_lsm_local() :
 {
 }
 
-template <class K, class V, int Rlx>
-dist_lsm_local<K, V, Rlx>::~dist_lsm_local()
+template <class K, class V, int Rlx, class PQ>
+generic_dist_lsm_local<K, V, Rlx, PQ>::~generic_dist_lsm_local()
 {
     /* Blocks and items are managed by, respectively,
      * block_storage and item_allocator. */
 }
 
-template <class K, class V, int Rlx>
+template <class K, class V, int Rlx, class PQ>
 void
-dist_lsm_local<K, V, Rlx>::insert(const K &key,
+generic_dist_lsm_local<K, V, Rlx, PQ>::insert(const K &key,
                                   const V &val,
-                                  shared_lsm<K, V, Rlx> *slsm)
+                                  PQ *slsm)
 {
     item<K, V> *it = m_item_allocator.acquire();
     it->initialize(key, val);
@@ -45,11 +45,11 @@ dist_lsm_local<K, V, Rlx>::insert(const K &key,
     insert(it, it->version(), slsm);
 }
 
-template <class K, class V, int Rlx>
+template <class K, class V, int Rlx, class PQ>
 void
-dist_lsm_local<K, V, Rlx>::insert(item<K, V> *it,
+generic_dist_lsm_local<K, V, Rlx, PQ>::insert(item<K, V> *it,
                                   const version_t version,
-                                  shared_lsm<K, V, Rlx> *slsm)
+                                  PQ *slsm)
 {
     const K it_key = it->key();
 
@@ -72,10 +72,10 @@ dist_lsm_local<K, V, Rlx>::insert(item<K, V> *it,
     merge_insert(new_block, slsm);
 }
 
-template <class K, class V, int Rlx>
+template <class K, class V, int Rlx, class PQ>
 void
-dist_lsm_local<K, V, Rlx>::merge_insert(block<K, V> *const new_block,
-                                        shared_lsm<K, V, Rlx> *slsm)
+generic_dist_lsm_local<K, V, Rlx, PQ>::merge_insert(block<K, V> *const new_block,
+                                        PQ *slsm)
 {
     block<K, V> *insert_block = new_block;
     block<K, V> *other_block  = m_tail;
@@ -136,9 +136,9 @@ dist_lsm_local<K, V, Rlx>::merge_insert(block<K, V> *const new_block,
     }
 }
 
-template <class K, class V, int Rlx>
+template <class K, class V, int Rlx, class PQ>
 bool
-dist_lsm_local<K, V, Rlx>::delete_min(dist_lsm<K, V, Rlx> *parent,
+generic_dist_lsm_local<K, V, Rlx, PQ>::delete_min(generic_dist_lsm<K, V, Rlx, PQ> *parent,
                                       K &key, V &val)
 {
     typename block<K, V>::peek_t best = block<K, V>::peek_t::EMPTY();
@@ -155,18 +155,18 @@ dist_lsm_local<K, V, Rlx>::delete_min(dist_lsm<K, V, Rlx> *parent,
     return best.m_item->take(best.m_version, key, val);
 }
 
-template <class K, class V, int Rlx>
+template <class K, class V, int Rlx, class PQ>
 bool
-dist_lsm_local<K, V, Rlx>::delete_min(dist_lsm<K, V, Rlx> *parent,
+generic_dist_lsm_local<K, V, Rlx, PQ>::delete_min(generic_dist_lsm<K, V, Rlx, PQ> *parent,
                                       V &val)
 {
     K key;
     return delete_min(parent, key, val);
 }
 
-template <class K, class V, int Rlx>
+template <class K, class V, int Rlx, class PQ>
 void
-dist_lsm_local<K, V, Rlx>::peek(typename block<K, V>::peek_t &best)
+generic_dist_lsm_local<K, V, Rlx, PQ>::peek(typename block<K, V>::peek_t &best)
 {
     /* Short-circuit. */
     if (!m_cached_best.empty() && !m_cached_best.taken()) {
@@ -265,9 +265,9 @@ dist_lsm_local<K, V, Rlx>::peek(typename block<K, V>::peek_t &best)
     m_cached_best = best;
 }
 
-template <class K, class V, int Rlx>
+template <class K, class V, int Rlx, class PQ>
 void
-dist_lsm_local<K, V, Rlx>::safe_peek(typename block<K, V>::peek_t &best)
+generic_dist_lsm_local<K, V, Rlx, PQ>::safe_peek(typename block<K, V>::peek_t &best)
 {
     for (auto i = m_head.load(std::memory_order_relaxed);
             i != nullptr;
@@ -279,9 +279,9 @@ dist_lsm_local<K, V, Rlx>::safe_peek(typename block<K, V>::peek_t &best)
     }
 }
 
-template <class K, class V, int Rlx>
+template <class K, class V, int Rlx, class PQ>
 int
-dist_lsm_local<K, V, Rlx>::spy(dist_lsm<K, V, Rlx> *parent)
+generic_dist_lsm_local<K, V, Rlx, PQ>::spy(generic_dist_lsm<K, V, Rlx, PQ> *parent)
 {
     COUNT_INC(requested_spies);
 
@@ -302,9 +302,9 @@ dist_lsm_local<K, V, Rlx>::spy(dist_lsm<K, V, Rlx> *parent)
     return spy(victim);
 }
 
-template <class K, class V, int Rlx>
+template <class K, class V, int Rlx, class PQ>
 int
-dist_lsm_local<K, V, Rlx>::spy(dist_lsm_local<K, V, Rlx> *victim)
+generic_dist_lsm_local<K, V, Rlx, PQ>::spy(generic_dist_lsm_local<K, V, Rlx, PQ> *victim)
 {
     if (m_tail != nullptr) {
         COUNT_INC(aborted_spies);
@@ -342,9 +342,9 @@ dist_lsm_local<K, V, Rlx>::spy(dist_lsm_local<K, V, Rlx> *victim)
     return num_spied;
 }
 
-template <class K, class V, int Rlx>
+template <class K, class V, int Rlx, class PQ>
 void
-dist_lsm_local<K, V, Rlx>::print() const
+generic_dist_lsm_local<K, V, Rlx, PQ>::print() const
 {
     m_block_storage.print();
 }

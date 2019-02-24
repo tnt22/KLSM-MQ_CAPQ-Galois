@@ -17,19 +17,18 @@
  *  along with kpqueue.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __DIST_LSM_H
-#define __DIST_LSM_H
+#ifndef __GENERIC_DIST_LSM_H
+#define __GENERIC_DIST_LSM_H
 
-#include "dist_lsm_local.h"
-#include "shared_lsm.h"
+#include "generic_dist_lsm_local.h"
 
 namespace kpq
 {
 
-template <class K, class V, int Rlx>
-class dist_lsm
+template <class K, class V, int Rlx, class PQ>
+class generic_dist_lsm
 {
-    friend int dist_lsm_local<K, V, Rlx>::spy(dist_lsm<K, V, Rlx> *parent);
+    friend int generic_dist_lsm_local<K, V, Rlx, PQ>::spy(generic_dist_lsm<K, V, Rlx, PQ> *parent);
 
 public:
 
@@ -47,7 +46,7 @@ public:
      */
     void insert(const K &key,
                 const V &val,
-                shared_lsm<K, V, Rlx> *slsm);
+                PQ *slsm);
 
     /**
      * Attempts to remove the locally (i.e. on the current thread) minimal item.
@@ -67,11 +66,11 @@ public:
     constexpr static bool supports_concurrency() { return true; }
 
 private:
-    thread_local_ptr<dist_lsm_local<K, V, Rlx>> m_local;
+    thread_local_ptr<generic_dist_lsm_local<K, V, Rlx, PQ>> m_local;
 };
 
-#include "dist_lsm_inl.h"
+#include "generic_dist_lsm_inl.h"
 
 }
 
-#endif /* __DIST_LSM_H */
+#endif /* __GENERIC_DIST_LSM_H */

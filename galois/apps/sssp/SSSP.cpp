@@ -436,6 +436,8 @@ struct AsyncAlgo {
     typedef UpdateRequestComparer<UpdateRequest> Comparer;
     typedef UpdateRequestNodeComparer<UpdateRequest> NodeComparer;
     typedef UpdateRequestHasher<UpdateRequest> Hasher;
+    typedef GlobPQ<UpdateRequest, cpq::CA_PQ<UpdateRequest, UpdateRequestIndexer<UpdateRequest>>> MYCAPQ;
+    typedef GlobPQ<UpdateRequest, kLSMQ_generic<UpdateRequest, UpdateRequestIndexer<UpdateRequest>, 256, cpq::CA_PQ<UpdateRequest, UpdateRequestIndexer<UpdateRequest>>>> kLSM256_CAPQ;
     typedef GlobPQ<UpdateRequest, kLSMQ<UpdateRequest, UpdateRequestIndexer<UpdateRequest>, 1>> kLSM1;
     typedef GlobPQ<UpdateRequest, kLSMQ<UpdateRequest, UpdateRequestIndexer<UpdateRequest>, 2>> kLSM2;
     typedef GlobPQ<UpdateRequest, kLSMQ<UpdateRequest, UpdateRequestIndexer<UpdateRequest>, 4>> kLSM4;
@@ -576,6 +578,10 @@ struct AsyncAlgo {
       Galois::for_each_local(initial, ProcessWithBreaks(this, graph), Galois::wl<HSWARMPQ_NC>());
     else if (wl == "ppq")
       Galois::for_each_local(initial, ProcessWithBreaks(this, graph), Galois::wl<PPQ>());
+    else if (wl == "capq")
+      Galois::for_each_local(initial, Process(this, graph), Galois::wl<MYCAPQ>());
+    else if (wl == "klsm256_capq")
+      Galois::for_each_local(initial, Process(this, graph), Galois::wl<kLSM256_CAPQ>());
     else if (wl == "klsm1")
       Galois::for_each_local(initial, Process(this, graph), Galois::wl<kLSM1>());
     else if (wl == "klsm2")

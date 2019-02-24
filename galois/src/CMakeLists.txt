@@ -61,6 +61,8 @@ if(NUMA_FOUND)
 endif()
 
 target_link_libraries(galois ${TBB_LIBRARIES})
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../include/Galois/WorkList/capq/capq_c_library ${CMAKE_CURRENT_BINARY_DIR}/capq_c_library)
+#target_link_libraries(galois capq)
 
 if(USE_VTUNE)
   set(VTune_ROOT "/opt/intel/vtune_amplifier_xe_2013;/opt/intel/vtune_amplifier_xe_2011")
