@@ -1,0 +1,50 @@
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-mad-04 threads=16 delta=8 prog=sssp-klsm1  ===
+ERROR: ld.so: object '/specific/disk1/home/adamx/malloc/lib64/libjemalloc.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 16 -delta 8 -wl klsm1 -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/road/USA-road-d.USA.gr
+INFO: Hostname rack-mad-04
+Read 23947347 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 1
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 2025
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3,T4,T5,T6,T7,T8,T9,T10,T11,T12,T13,T14,T15
+STAT,(NULL),BadWork,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+STAT,(NULL),BarrierTime,16,1750180,318232,213934,182018,156376,137799,154774,137189,83030,44267,46194,47693,87821,45748,46495,43369,5241
+STAT,(NULL),ConflictTime,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+STAT,(NULL),Conflicts,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,16,1422325,58852,66520,38246,102298,94923,91533,94396,100633,103232,92458,103633,91961,100799,94751,92818,95272
+STAT,(NULL),EmptyWork,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+STAT,(NULL),GaloisTime,16,3546154,225948,229060,212149,215677,223400,226290,224073,218282,214712,226099,214499,226305,217452,223772,225563,222873
+STAT,(NULL),InitPushTime,16,712791,47016,59748,137948,37103,36508,37291,36617,36435,36405,35312,35685,35437,35276,34536,35652,35822
+STAT,(NULL),Iterations,16,5,1,1,3,0,0,0,0,0,0,0,0,0,0,0,0,0
+STAT,(NULL),LoopTime,16,574021092,574021092,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+STAT,(NULL),MeminfoPost,16,2208,138,138,138,138,138,138,138,138,138,138,138,138,138,138,138,138
+STAT,(NULL),MeminfoPre,16,2208,138,138,138,138,138,138,138,138,138,138,138,138,138,138,138,138
+STAT,(NULL),NumaPost,16,8424,6801,232,1191,200,0,0,0,0,0,0,0,0,0,0,0,0
+STAT,(NULL),PopTime,16,18757,4088,3702,10967,0,0,0,0,0,0,0,0,0,0,0,0,0
+STAT,(NULL),PushTime,16,62748,20040,12320,30388,0,0,0,0,0,0,0,0,0,0,0,0,0
+STAT,(NULL),RusageSys,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+STAT,(NULL),RusageUser,16,4000,4000,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+STAT,(NULL),Threads,16,16,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+STAT,(NULL),Time,16,600327055,600327055,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+STAT,(NULL),TotalTime,16,10081352388,10081352388,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+STAT,(NULL),UserTime,16,32462,8132,7231,17099,0,0,0,0,0,0,0,0,0,0,0,0,0
+STAT,(NULL),Work,16,5827090,365932,357052,346341,366029,365164,366180,365925,365922,365864,366013,364711,366325,366174,367003,366341,366114
+STAT,(NULL),nBad,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+STAT,(NULL),nEmpty,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+STAT,(NULL),nEmptyPop,16,1466,56,71,42,107,95,95,95,105,106,95,106,93,107,99,95,99
+STAT,(NULL),nOverall,16,13,2,2,9,0,0,0,0,0,0,0,0,0,0,0,0,0
+STAT,(NULL),nPop,16,5,1,1,3,0,0,0,0,0,0,0,0,0,0,0,0,0
+STAT,(NULL),nPush,16,7,1,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0
+STAT,(NULL),nPushInit,16,3,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+==== BENCHMARK TOOK 5.386
