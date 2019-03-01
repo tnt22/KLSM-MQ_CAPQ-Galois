@@ -7,7 +7,7 @@ import scipy as sp
 
 
 def main():
-    """run the script python night_script.py"""
+    """run the script python3 night_script.py"""
 
     folder = "testrun1"  # set the folder to save to, don't neeed to create one
 
@@ -18,7 +18,9 @@ def main():
               "scalefree/rmat16p-2e27.gr"]
     klsm = ["klsm"+str(2**num) for num in range(8, 13)]
     fudim = ["obim"]+klsm
-    data_structures = fudim
+    kessler = ["capq"]
+    leibo = []
+    data_structures = fudim  # choose one of the above
     applications = ["sssp"]
     delta = 4
     default = ["-m", "libc", "-D", str(delta), "-d", folder]
