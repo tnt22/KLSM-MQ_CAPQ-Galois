@@ -112,6 +112,7 @@ public:
     return C;
   }
 
+
   //! iterators not safe with concurrent modifications
   typedef T value_type;
   typedef T& reference;
@@ -805,6 +806,8 @@ private:
 public:
   MultiQueue() : nQ(Galois::getActiveThreads() * c) {
     Q = new LockFreeSkipList<Comparer, K>[nQ];
+    SkipListNode<K> *global_first = Null;
+    int global_q = -1;
   }
 
   ~MultiQueue() {
@@ -846,6 +849,69 @@ public:
       if (gotit) return true;
     }
   }
+  
+
+  
+    bool peak(K& key) {
+
+    while (true) {
+      int q0 = LockFreeSkipList<Comparer, K>::rand_range(nQ) - 1;
+      int q1 = LockFreeSkipList<Comparer, K>::rand_range(nQ) - 1;
+
+      if (q0 == q1) continue;
+
+      SkipListNode<K> *first0 = Q[q0].peek_pop();
+      SkipListNode<K> *first1 = Q[q1].peek_pop();
+      bool gotit;
+
+      if (!first0 && !first1) {
+        for (int i = 0; i < nQ; i++) {
+          if (Q[i].try_pop(key)) return true;
+        }
+        return false;
+      } else if (!first0) {
+        //gotit = Q[q1].complete_pop(first1, key);
+        global_q = q1;
+        global_first = first1;
+        gotit = true;
+      } else if (!first1) {
+       // gotit = Q[q0].complete_pop(first0, key);
+        global_q = q0;
+        global_first = first0;
+        gotit = true;
+      } else if (compare(first0->key, first1->key)) {
+      //  gotit = Q[q1].complete_pop(first1, key);
+        global_q = q1;
+        global_first = first1;
+        gotit = true;
+      } else {
+       // gotit = Q[q0].complete_pop(first0, key);
+        global_q = q0;
+        global_first = first0;
+        gotit = true;
+      }
+
+      if (gotit) return true;
+    }
+  }
+  
+  bool complete_pop(K& key) {
+ //   while (true) {
+      if (global_first && global_q >= 0){
+        gotit = Q[global_q].complete_pop(global_first, key);
+      }
+      if (gotit){
+        global_first = Null;
+        global_q = -1;
+        return true;
+      }
+      } else return false;
+  //  }
+  }
+  
+  
+  
+  
 };
 
 // MultiQueue, by Hamza Rihani, Peter Sanders, Roman Dementiev
