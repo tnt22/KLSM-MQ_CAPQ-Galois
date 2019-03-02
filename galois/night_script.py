@@ -52,7 +52,7 @@ def main():
                         out = subprocess.check_output(cmd)
                         # print(out.decode("utf-8"))
                         num_lines = len(out.decode("utf-8").split('\n'))
-                        if(num_lines > 1):
+                        if(num_lines > 2):
                             # performs additonal 9 test if there wasn't a timeout in the first run
                             cmd = base+["/specific/disk1/home/mad/Galois-PQ/inputs/"+graph]+["-r", "9", "-t"]+[thread] + \
                                 ["-v"]+[data_structure]+default+[application]
