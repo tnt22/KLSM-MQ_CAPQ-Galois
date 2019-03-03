@@ -40,7 +40,7 @@ namespace kpq
  * The PQ should implement void push(V& val) and bool try_pop(V& val);
  */
 
-template <class K, class V, int Rlx, class PQ>
+template <class K, class V, int Rlx, class Indexer, class PQ>
 class generic_k_lsm
 {
 public:
@@ -51,28 +51,28 @@ public:
   void insert(const K &key,
               const V &val);
 
-  int delete_min(V &val, V &val2);
-  int delete_min(K &key, V &val, V &val2);
+  int delete_min(V &val);
+  int delete_min(K &key, V &val);
 
   void init_thread(const size_t) const {}
   constexpr static bool supports_concurrency() { return true; }
 
 private:
+  Indexer indexer;
   class PQWraper
   {
   private:
-    PQ pq;
 
   public:
-    void push(V &val) { pq.push(val); }
-    bool try_pop(V &val) { return pq.try_pop(val); }
+    PQ pq;
+  
     void insert(block<K, V> *block)
     {
       typename kpq::block<K, V>::peek_t item;
       V val;
       while ((item = block->peek()).m_item != nullptr)
         if (item.take(val))
-          push(val);
+          pq.push(val);
     }
   };
   generic_dist_lsm<K, V, Rlx, PQWraper> m_dist;

@@ -41,6 +41,7 @@
 
 #include <boost/iterator/iterator_facade.hpp>
 #include <boost/heap/d_ary_heap.hpp>
+#include <cstddef>
 
 #define MEM_BARRIER     asm volatile("":::"memory")
 #define ATOMIC_CAS_MB(p, o, n)  __sync_bool_compare_and_swap(p, o, n)
@@ -537,9 +538,44 @@ public:
       next = first->next[0];
     } while(next && is_marked(next));
 
-    return next ? first : 0;
+    return next ? first : NULL;
   }
+/*
+   sl_node_t peek_pop(K& key) {
+    sl_node_t *first, *next;
+    bool result;
 
+    first = head;
+
+    while(1) {
+      do {
+        first = unset_mark(first->next[0]);
+        next = first->next[0];
+      } while(next && is_marked(next));
+
+      if (next && !ATOMIC_CAS_MB(&first->next[0], next, set_mark(next))) {
+      } else {
+        break;
+      }
+    }
+
+    result = (first->next[0] != NULL);
+    if (!result) {
+      return NULL;
+    }
+
+    key = (first->key);
+    mark_node_ptrs(first);
+
+    fraser_search(key, NULL, NULL, first);
+   // sl_delete_node(first);
+
+    return first;
+  } 
+  
+  */
+  
+  
   K& get_min(void) const
   {
     sl_node_t *n = peek_pop();
@@ -794,6 +830,8 @@ public:
 };
 
 
+
+
 // MultiQueue, by Hamza Rihani, Peter Sanders, Roman Dementiev
 // http://arxiv.org/abs/1411.1209
 template<class Comparer, typename K, int c>
@@ -809,6 +847,15 @@ public:
     Q = new LockFreeSkipList<Comparer, K>[nQ];
   }
 
+class global_pointers{
+  public:
+    SkipListNode<K> *global_first = NULL;
+    int global_q = -1;
+    bool gotit = false;
+};
+  
+  
+  
   ~MultiQueue() {
     delete[] Q;
   }
@@ -847,6 +894,67 @@ public:
 
       if (gotit) return true;
     }
+  }
+   
+  global_pointers peek(K& key) {
+
+    while (true) {
+      int q0 = LockFreeSkipList<Comparer, K>::rand_range(nQ) - 1;
+      int q1 = LockFreeSkipList<Comparer, K>::rand_range(nQ) - 1;
+      global_pointers g = global_pointers();
+
+      SkipListNode<K>* temp;
+      if (q0 == q1) continue;
+
+      SkipListNode<K> *first0 = Q[q0].peek_pop();
+      SkipListNode<K> *first1 = Q[q1].peek_pop();
+      bool gotit;
+
+      if (!first0 && !first1) {
+        for (int i = 0; i < nQ; i++) { 
+          if (temp = Q[i].peek_pop()){
+            g.global_first = temp;
+            g.global_q = i;
+            key = temp-> key;
+            g.gotit = true;
+            return g;
+          }
+        }
+        return g;
+      } else if (!first0) {
+        //gotit = Q[q1].complete_pop(first1, key);
+        g.global_q = q1;
+        g.global_first = first1;
+        key = first1->key;
+        g.gotit = true;
+      } else if (!first1) {
+       // gotit = Q[q0].complete_pop(first0, key);
+        g.global_q = q0;
+        g.global_first = first0;
+        key = first0->key;
+        g.gotit = true;
+      } else if (compare(first0->key, first1->key)) {
+      //  gotit = Q[q1].complete_pop(first1, key);
+        g.global_q = q1;
+        g.global_first = first1;
+        key = first1->key;
+        g.gotit = true;
+      } else {
+       // gotit = Q[q0].complete_pop(first0, key);
+        g.global_q = q0;
+        g.global_first = first0;
+        key = first0->key;
+        g.gotit = true;
+      }
+      return g;
+    }
+  }
+  
+  bool complete_pop(K& key , global_pointers& g) {
+      if (g.global_first && g.global_q >= 0){
+        return Q[g.global_q].complete_pop(g.global_first, key);
+      }
+      return false;
   }
 };
 
@@ -1503,7 +1611,7 @@ public:
 template<typename K, class Indexer, int Rlx, class PQ>
 class kLSMQ_generic {
     // kpq::k_lsm key MUST be unsigned
-    kpq::generic_k_lsm<unsigned long, K, Rlx, PQ> pq;
+    kpq::generic_k_lsm<unsigned long, K, Rlx, Indexer, PQ> pq;
     Indexer indexer;
 
 public:
@@ -1513,15 +1621,11 @@ public:
     }
 
     bool try_pop(K& key) {
-      K key2;
-      int res = pq.delete_min(key, key2);
-      if(res==0) return false;
-      if(res==2) push(key2);
-      return true;
+      return pq.delete_min(key);
     }
 };
 
-}
+} // end namespace WorkList
 } // end namespace Galois
 
 #endif

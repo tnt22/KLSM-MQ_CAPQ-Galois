@@ -456,6 +456,10 @@ struct AsyncAlgo {
     typedef GlobPQ<UpdateRequest, SprayList<NodeComparer, UpdateRequest>> SL;
     typedef GlobPQ<UpdateRequest, MultiQueue<Comparer, UpdateRequest, 1>> MQ1;
     typedef GlobPQ<UpdateRequest, MultiQueue<Comparer, UpdateRequest, 4>> MQ4;
+    typedef GlobPQ<UpdateRequest, kLSMQ_generic<UpdateRequest, UpdateRequestIndexer<UpdateRequest>, 4096, MultiQueue<Comparer, UpdateRequest, 4>>> kLSM4096_MQ4;
+    typedef GlobPQ<UpdateRequest, kLSMQ_generic<UpdateRequest, UpdateRequestIndexer<UpdateRequest>, 64, MultiQueue<Comparer, UpdateRequest, 4>>> kLSM64_MQ4;
+    typedef GlobPQ<UpdateRequest, kLSMQ_generic<UpdateRequest, UpdateRequestIndexer<UpdateRequest>, 256, MultiQueue<Comparer, UpdateRequest, 4>>> kLSM256_MQ4;
+    typedef GlobPQ<UpdateRequest, kLSMQ_generic<UpdateRequest, UpdateRequestIndexer<UpdateRequest>, 256, MultiQueue<Comparer, UpdateRequest, 1>>> kLSM256_MQ;
     typedef GlobPQ<UpdateRequest, MultiQueue<NodeComparer, UpdateRequest, 4>> MQ4_NC;
     typedef GlobPQ<UpdateRequest, HeapMultiQueue<Comparer, UpdateRequest, 1>> HMQ1;
     typedef GlobPQ<UpdateRequest, HeapMultiQueue<Comparer, UpdateRequest, 4>> HMQ4;
@@ -580,8 +584,16 @@ struct AsyncAlgo {
       Galois::for_each_local(initial, ProcessWithBreaks(this, graph), Galois::wl<PPQ>());
     else if (wl == "capq")
       Galois::for_each_local(initial, Process(this, graph), Galois::wl<MYCAPQ>());
-    else if (wl == "klsm256_capq")
-      Galois::for_each_local(initial, Process(this, graph), Galois::wl<kLSM256_CAPQ>());
+    // else if (wl == "klsm256_capq")
+    //   Galois::for_each_local(initial, Process(this, graph), Galois::wl<kLSM256_CAPQ>());
+    else if (wl == "klsm4096mq4")
+      Galois::for_each_local(initial, Process(this, graph), Galois::wl<kLSM4096_MQ4>());
+    else if (wl == "klsm64mq4")
+      Galois::for_each_local(initial, Process(this, graph), Galois::wl<kLSM64_MQ4>());
+    else if (wl == "klsm256mq4")
+      Galois::for_each_local(initial, Process(this, graph), Galois::wl<kLSM256_MQ4>());
+    else if (wl == "klsm256mq")
+      Galois::for_each_local(initial, Process(this, graph), Galois::wl<kLSM256_MQ>());
     else if (wl == "klsm1")
       Galois::for_each_local(initial, Process(this, graph), Galois::wl<kLSM1>());
     else if (wl == "klsm2")

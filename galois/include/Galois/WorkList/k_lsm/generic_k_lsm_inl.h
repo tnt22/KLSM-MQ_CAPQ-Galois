@@ -17,19 +17,19 @@
  *  along with kpqueue.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-template <class K, class V, int Rlx, class PQ>
-generic_k_lsm<K, V, Rlx, PQ>::generic_k_lsm()
+template <class K, class V, int Rlx, class Indexer, class PQ>
+generic_k_lsm<K, V, Rlx, Indexer, PQ>::generic_k_lsm()
 {
 }
 
-template <class K, class V, int Rlx, class PQ>
-void generic_k_lsm<K, V, Rlx, PQ>::insert(const K &key)
+template <class K, class V, int Rlx, class Indexer, class PQ>
+void generic_k_lsm<K, V, Rlx, Indexer, PQ>::insert(const K &key)
 {
     insert(key, key);
 }
 
-template <class K, class V, int Rlx, class PQ>
-void generic_k_lsm<K, V, Rlx, PQ>::insert(const K &key,
+template <class K, class V, int Rlx, class Indexer, class PQ>
+void generic_k_lsm<K, V, Rlx, Indexer, PQ>::insert(const K &key,
                                           const V &val)
 {
     /* Insert into the distributed lsm; if the largest block is large enough
@@ -78,8 +78,8 @@ void generic_k_lsm<K, V, Rlx, PQ>::insert(const K &key,
     m_dist.insert(key, val, &m_shared);
 }
 
-template <class K, class V, int Rlx, class PQ>
-int generic_k_lsm<K, V, Rlx, PQ>::delete_min(K &key, V &val, V &val2)
+template <class K, class V, int Rlx, class Indexer, class PQ>
+int generic_k_lsm<K, V, Rlx, Indexer, PQ>::delete_min(K &key, V &val)
 {
     /* Load the best item from the local distributed lsm, and the (relaxed)
      * best item from the global lsm, and return the best of both.
@@ -94,53 +94,47 @@ int generic_k_lsm<K, V, Rlx, PQ>::delete_min(K &key, V &val, V &val2)
      * interactions between memory management here.
      */
 
-    typename block<K, V>::peek_t
-        best_dist = block<K, V>::peek_t::EMPTY();
-    V best_shared;
+     K best_shared_key;
+     V best_shared_val;
+     typename block<K, V>::peek_t
+            best_dist = block<K, V>::peek_t::EMPTY();
 
-    bool got_best_shared, got_best_dist;
-    do
-    {
+    do {
         m_dist.find_min(best_dist);
-        got_best_dist = !best_dist.empty();
-        got_best_shared = m_shared.try_pop(best_shared);
+        auto best_shared = m_shared.pq.peek(best_shared_val);
+        if(best_shared.gotit) best_shared_key = indexer(best_shared_val);
 
-        if (got_best_dist && got_best_shared)
-        {
-            if (best_dist.m_item->val() < best_shared)
-            {
+        if (!best_dist.empty() && best_shared.gotit) {
+            if (best_dist.m_key <= best_shared_key) {
                 COUNT_INC(dlsm_deletes);
-                best_dist.take(key, val);
-                val2 = best_shared;
-                return 2;
-            }
-            else
-            {
+                return best_dist.take(key, val);
+            } else {
                 COUNT_INC(slsm_deletes);
-                val = best_shared;
-                return 1;
+                key = best_shared_key;
+                val = best_shared_val;
+                return m_shared.pq.complete_pop(val, best_shared);
             }
         }
 
-        if (got_best_dist)
-        {
+        if (!best_dist.empty() /* and best_shared is empty */) {
             COUNT_INC(dlsm_deletes);
-            return best_dist.take(key, val) ? 1 : 0;
+            return best_dist.take(key, val);
         }
 
-        if (got_best_shared)
-        {
+        if (best_shared.gotit /* and best_dist is empty */) {
             COUNT_INC(slsm_deletes);
-            val = best_shared;
-            return 1;
+            key = best_shared_key;
+            val = best_shared_val;
+            return m_shared.pq.complete_pop(val, best_shared);
         }
     } while (m_dist.spy() > 0);
-    return 0;
+
+    return false;
 }
 
-template <class K, class V, int Rlx, class PQ>
-int generic_k_lsm<K, V, Rlx, PQ>::delete_min(V &val, V &val2)
+template <class K, class V, int Rlx, class Indexer, class PQ>
+int generic_k_lsm<K, V, Rlx, Indexer, PQ>::delete_min(V &val)
 {
     K key;
-    return delete_min(key, val, val2);
+    return delete_min(key, val);
 }

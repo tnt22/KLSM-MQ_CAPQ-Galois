@@ -4,6 +4,9 @@
 set -e
 set -o pipefail # needed in case we use a pipe in the script.
 
+# parameter for build.
+export CACHE_LINE_SIZE="128"
+
 # Build it (with debug flag).
 cd build
 mkdir -p debug
