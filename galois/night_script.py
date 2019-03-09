@@ -19,8 +19,8 @@ def main():
     klsm = ["klsm"+str(2**num) for num in range(8, 13)]
     fudim = ["obim"]+klsm
     kessler = ["capq"]
-    leibo = []
-    data_structures = fudim  # choose one of the above
+    leibo = ["multiqueue1", "multiqueue4"]
+    data_structures = leibo  # choose one of the above
     applications = ["sssp"]
     delta = 4
     default = ["-m", "libc", "-D", str(delta), "-d", folder]
