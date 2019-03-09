@@ -17,61 +17,61 @@
  *  along with kpqueue.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-template <class K, class V, int Rlx>
+template <class K, class V, int Rlx, class PQ>
 void
-dist_lsm<K, V, Rlx>::insert(const K &key)
+generic_dist_lsm<K, V, Rlx, PQ>::insert(const K &key)
 {
     insert(key, key);
 }
 
-template <class K, class V, int Rlx>
+template <class K, class V, int Rlx, class PQ>
 void
-dist_lsm<K, V, Rlx>::insert(const K &key,
+generic_dist_lsm<K, V, Rlx, PQ>::insert(const K &key,
                             const V &val)
 {
     m_local.get()->insert(key, val, nullptr);
 }
 
-template <class K, class V, int Rlx>
+template <class K, class V, int Rlx, class PQ>
 void
-dist_lsm<K, V, Rlx>::insert(const K &key,
+generic_dist_lsm<K, V, Rlx, PQ>::insert(const K &key,
                             const V &val,
-                            shared_lsm<K, V, Rlx> *slsm)
+                            PQ *slsm)
 {
     m_local.get()->insert(key, val, slsm);
 }
 
-template <class K, class V, int Rlx>
+template <class K, class V, int Rlx, class PQ>
 bool
-dist_lsm<K, V, Rlx>::delete_min(V &val)
+generic_dist_lsm<K, V, Rlx, PQ>::delete_min(V &val)
 {
     return m_local.get()->delete_min(this, val);
 }
 
-template <class K, class V, int Rlx>
+template <class K, class V, int Rlx, class PQ>
 bool
-dist_lsm<K, V, Rlx>::delete_min(K &key, V &val)
+generic_dist_lsm<K, V, Rlx, PQ>::delete_min(K &key, V &val)
 {
     return m_local.get()->delete_min(this, key, val);
 }
 
-template <class K, class V, int Rlx>
+template <class K, class V, int Rlx, class PQ>
 void
-dist_lsm<K, V, Rlx>::find_min(typename block<K, V>::peek_t &best)
+generic_dist_lsm<K, V, Rlx, PQ>::find_min(typename block<K, V>::peek_t &best)
 {
     m_local.get()->peek(best);
 }
 
-template <class K, class V, int Rlx>
+template <class K, class V, int Rlx, class PQ>
 int
-dist_lsm<K, V, Rlx>::spy()
+generic_dist_lsm<K, V, Rlx, PQ>::spy()
 {
     return m_local.get()->spy(this);
 }
 
-template <class K, class V, int Rlx>
+template <class K, class V, int Rlx, class PQ>
 void
-dist_lsm<K, V, Rlx>::print()
+generic_dist_lsm<K, V, Rlx, PQ>::print()
 {
     for (size_t i = 0; i < m_local.num_threads(); i++) {
         m_local.get(i)->print();

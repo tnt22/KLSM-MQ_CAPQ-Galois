@@ -17,8 +17,8 @@
  *  along with kpqueue.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __DIST_LSM_LOCAL_H
-#define __DIST_LSM_LOCAL_H
+#ifndef __GENERIC_DIST_LSM_LOCAL_H
+#define __GENERIC_DIST_LSM_LOCAL_H
 
 #include <atomic>
 
@@ -31,25 +31,22 @@
 namespace kpq
 {
 
-template <class K, class V, int Rlx>
-class dist_lsm;
+template <class K, class V, int Rlx, class PQ>
+class generic_dist_lsm;
 
-template <class K, class V, int Rlx>
-class shared_lsm;
-
-template <class K, class V, int Rlx>
-class dist_lsm_local
+template <class K, class V, int Rlx, class PQ>
+class generic_dist_lsm_local
 {
 public:
-    dist_lsm_local();
-    virtual ~dist_lsm_local();
+    generic_dist_lsm_local();
+    virtual ~generic_dist_lsm_local();
 
     void insert(const K &key,
                 const V &val,
-                shared_lsm<K, V, Rlx> *slsm);
-    bool delete_min(dist_lsm<K, V, Rlx> *parent,
+                PQ *slsm);
+    bool delete_min(generic_dist_lsm<K, V, Rlx, PQ> *parent,
                     V &val);
-    bool delete_min(dist_lsm<K, V, Rlx> *parent,
+    bool delete_min(generic_dist_lsm<K, V, Rlx, PQ> *parent,
                     K &key, V &val);
     /** Iterates through local items and returns the best one found.
      *  In the process of finding the minimal item, unowned items
@@ -63,8 +60,8 @@ public:
 
     /** Attempts to copy items from a random other thread's local clsm,
      *  and returns the number of items copied. */
-    int spy(class dist_lsm<K, V, Rlx> *parent);
-    int spy(dist_lsm_local<K, V, Rlx> *victim);
+    int spy(class generic_dist_lsm<K, V, Rlx, PQ> *parent);
+    int spy(generic_dist_lsm_local<K, V, Rlx, PQ> *victim);
 
     bool empty() const { return m_head.load(std::memory_order_relaxed) == nullptr; }
 
@@ -74,14 +71,14 @@ private:
     /** The internal insertion, used both in the public insert() and in spy(). */
     void insert(item<K, V> *it,
                 const version_t version,
-                shared_lsm<K, V, Rlx> *slsm);
+                PQ *slsm);
 
     /**
      * Inserts new_block into the linked list of blocks, merging with
      * same size blocks until no two blocks in the list have the same size.
      */
     void merge_insert(block<K, V> *const new_block,
-                      shared_lsm<K, V, Rlx> *slsm);
+                      PQ *slsm);
 
 private:
     std::atomic<block<K, V> *> m_head; /**< The largest  block. */
@@ -98,8 +95,8 @@ private:
     xorshf96 m_gen;
 };
 
-#include "dist_lsm_local_inl.h"
+#include "generic_dist_lsm_local_inl.h"
 
 }
 
-#endif /* __DIST_LSM_LOCAL_H */
+#endif /* __GENERIC_DIST_LSM_LOCAL_H */
