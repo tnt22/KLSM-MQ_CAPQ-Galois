@@ -20,7 +20,7 @@ def main():
     fudim = ["obim"]+klsm
     kessler = ["capq"]
     leibo = ["multiqueue1", "multiqueue4"]
-    data_structures = leibo  # choose one of the above
+    data_structures = fudim  # choose one of the above
     applications = ["sssp"]
     delta = 4
     default = ["-m", "libc", "-D", str(delta), "-d", folder]
@@ -32,11 +32,18 @@ def main():
             for application in applications:
                 for thread in threads:
                     files = os.listdir(folder)
+                    graph_name = ""
+                    if graph.find('/') != -1:
+                        graph_name = graph[graph.find('/')+1:-3]
+                    else:
+                        graph_name = graph[:-3]
+
                     file_name = "{}-{}.{}.d{}_{}_{}.txt".format(
-                        application, data_structure, graph[:-3], default[3], thread, default[1])
+                        application, data_structure, graph_name, default[3], thread, default[1])
                     # print(file_name)
                     # print(str(files))
                     if(file_name not in files):
+                        print(file_name)
                         # performs a test only if the file is not found in the folder
                         cmd = base+["/specific/disk1/home/mad/Galois-PQ/inputs/"+graph]+["-r", "1", "-t"]+[thread] + \
                             ["-v"]+[data_structure]+default+[application]
