@@ -1,3 +1,0 @@
-==== BENCHMARK START ===
-==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-mad-04 threads=176 delta=8 prog=sssp-klsm32  ===
-ERROR: ld.so: object '/specific/disk1/home/adamx/malloc/lib64/libjemalloc.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
