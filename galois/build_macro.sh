@@ -5,7 +5,7 @@ set -e
 set -o pipefail # needed in case we use a pipe in the script.
 
 # parameter for build.
-export CACHE_LINE_SIZE="128"
+export CACHE_LINE_SIZE="128" # This is used for the CAPQ code compilation.
 
 # Build it (with debug flag).
 cd build
