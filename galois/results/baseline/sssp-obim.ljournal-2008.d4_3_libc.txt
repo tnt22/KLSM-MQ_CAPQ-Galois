@@ -1,0 +1,570 @@
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-obim  ===
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl obim -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/ljournal-2008.gr
+INFO: Hostname rack-castor
+Read 5363260 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 16
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 126
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,6914846168,1503897327,2926380568,2484568273,0
+STAT,(NULL),BarrierTime,4,625701,311720,30385,283596,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,3997400,1074772,337664,2584964,0
+STAT,(NULL),EmptyWork,4,1588184544,564452222,510409442,513322880,0
+STAT,(NULL),GaloisTime,4,5904320710,2104322973,1825026183,1974971554,0
+STAT,(NULL),InitPushTime,4,357660,3688,310148,43824,0
+STAT,(NULL),Iterations,4,11123651,3710180,4156199,3257272,0
+STAT,(NULL),LoopTime,4,27188861008,27188861008,0,0,0
+STAT,(NULL),MeminfoPost,4,495,165,165,165,0
+STAT,(NULL),MeminfoPre,4,495,165,165,165,0
+STAT,(NULL),NumaPost,4,3535,2074,782,579,100
+STAT,(NULL),PopTime,4,15816863424,5620032383,4927730713,5269100328,0
+STAT,(NULL),PushTime,4,9554534235,3208357419,3080858360,3265318456,0
+STAT,(NULL),RusageSys,4,0,0,0,0,0
+STAT,(NULL),RusageUser,4,36156000,36156000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,27190715438,27190715438,0,0,0
+STAT,(NULL),TotalTime,4,42262133160,42262133160,0,0,0
+STAT,(NULL),UserTime,4,46584247417,14985800099,16139688292,15458759026,0
+STAT,(NULL),Work,4,79452327058,26484120436,26484102242,26484104380,0
+STAT,(NULL),nBad,4,17009224,3604691,7227786,6176747,0
+STAT,(NULL),nEmpty,4,5939717,2047243,2194101,1698373,0
+STAT,(NULL),nEmptyPop,4,724,255,97,372,0
+STAT,(NULL),nOverall,4,94888982,27767449,36797234,30324299,0
+STAT,(NULL),nPop,4,11123651,3710180,4156199,3257272,0
+STAT,(NULL),nPush,4,11123650,3591204,4167590,3364856,0
+STAT,(NULL),nPushInit,4,1,0,1,0,0
+STAT,(NULL),qPopEmpty,4,7214,2139,848,4227,0
+STAT,(NULL),qPopEmptyCyc,4,2323478,844860,253095,1225523,0
+STAT,(NULL),qPopFast,4,10949655,3652140,4091183,3206332,0
+STAT,(NULL),qPopFastCyc,4,7052702517,2503184355,2208156496,2341361666,0
+STAT,(NULL),qPopLocal,4,173756,57958,64920,50878,0
+STAT,(NULL),qPopLocalCyc,4,482510886,169307334,153125844,160077708,0
+STAT,(NULL),qPopRemote,4,240,82,96,62,0
+STAT,(NULL),qPopRemoteCyc,4,500817,209616,135801,155400,0
+==== BENCHMARK TOOK 20.071
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-obim  ===
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl obim -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/ljournal-2008.gr
+INFO: Hostname rack-castor
+Read 5363260 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 16
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 126
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,6640693809,2367299832,2783097502,1490296475,0
+STAT,(NULL),BarrierTime,4,511682,281503,3067,227112,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,3069640,1975088,100594,993958,0
+STAT,(NULL),EmptyWork,4,1554984579,498071762,497534913,559377904,0
+STAT,(NULL),GaloisTime,4,5783223293,1918358994,1799761857,2065102442,0
+STAT,(NULL),InitPushTime,4,324226,3398,278728,42100,0
+STAT,(NULL),Iterations,4,11046952,3374898,4065616,3606438,0
+STAT,(NULL),LoopTime,4,26721145616,26721145616,0,0,0
+STAT,(NULL),MeminfoPost,4,495,165,165,165,0
+STAT,(NULL),MeminfoPre,4,495,165,165,165,0
+STAT,(NULL),NumaPost,4,3557,1898,773,786,100
+STAT,(NULL),PopTime,4,15395345129,5080571685,4804900172,5509873272,0
+STAT,(NULL),PushTime,4,9446272872,3189030702,3040061597,3217180573,0
+STAT,(NULL),RusageSys,4,0,0,0,0,0
+STAT,(NULL),RusageUser,4,35508000,35508000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,26722477913,26722477913,0,0,0
+STAT,(NULL),TotalTime,4,41785605472,41785605472,0,0,0
+STAT,(NULL),UserTime,4,45844764487,15321199574,15866866665,14656698248,0
+STAT,(NULL),Work,4,78027803467,26009261897,26009270930,26009270640,0
+STAT,(NULL),nBad,4,16355078,5879856,6928526,3546696,0
+STAT,(NULL),nEmpty,4,5879610,1772701,2158350,1948559,0
+STAT,(NULL),nEmptyPop,4,650,394,5,251,0
+STAT,(NULL),nOverall,4,94234836,30567125,36581248,27086463,0
+STAT,(NULL),nPop,4,11046952,3374898,4065616,3606438,0
+STAT,(NULL),nPush,4,11046951,3491314,4122319,3433318,0
+STAT,(NULL),nPushInit,4,1,0,1,0,0
+STAT,(NULL),qPopEmpty,4,7068,4004,852,2212,0
+STAT,(NULL),qPopEmptyCyc,4,1806742,933958,245068,627716,0
+STAT,(NULL),qPopFast,4,10874149,3322123,4002017,3550009,0
+STAT,(NULL),qPopFastCyc,4,6880723734,2266941894,2158446500,2455335340,0
+STAT,(NULL),qPopLocal,4,172558,52715,63509,56334,0
+STAT,(NULL),qPopLocalCyc,4,466448857,152854172,148952237,164642448,0
+STAT,(NULL),qPopRemote,4,245,60,90,95,0
+STAT,(NULL),qPopRemoteCyc,4,384175,104995,131564,147616,0
+==== BENCHMARK TOOK 19.783
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-obim  ===
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl obim -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/ljournal-2008.gr
+INFO: Hostname rack-castor
+Read 5363260 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 16
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 126
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,6642522529,2386342563,2788422678,1467757288,0
+STAT,(NULL),BarrierTime,4,509278,278304,4834,226140,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,3156126,673056,1485574,997496,0
+STAT,(NULL),EmptyWork,4,1535482334,490525359,488304357,556652618,0
+STAT,(NULL),GaloisTime,4,5774926296,1898237184,1798384442,2078304670,0
+STAT,(NULL),InitPushTime,4,323295,3764,276823,42708,0
+STAT,(NULL),Iterations,4,11034571,3476617,4042939,3515015,0
+STAT,(NULL),LoopTime,4,26744729328,26744729328,0,0,0
+STAT,(NULL),MeminfoPost,4,495,165,165,165,0
+STAT,(NULL),MeminfoPre,4,495,165,165,165,0
+STAT,(NULL),NumaPost,4,3543,2088,780,575,100
+STAT,(NULL),PopTime,4,15306107258,4999026495,4798905780,5508174983,0
+STAT,(NULL),PushTime,4,9595489428,3218750435,3087399891,3289339102,0
+STAT,(NULL),RusageSys,4,0,0,0,0,0
+STAT,(NULL),RusageUser,4,35548000,35548000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,26746133052,26746133052,0,0,0
+STAT,(NULL),TotalTime,4,41445705844,41445705844,0,0,0
+STAT,(NULL),UserTime,4,45898459141,15430650287,15863405815,14604403039,0
+STAT,(NULL),Work,4,78113772981,26037922476,26037924305,26037926200,0
+STAT,(NULL),nBad,4,16143188,5859387,6873777,3410024,0
+STAT,(NULL),nEmpty,4,5872910,1832846,2132196,1907868,0
+STAT,(NULL),nEmptyPop,4,600,181,145,274,0
+STAT,(NULL),nOverall,4,94022946,31244965,36609543,26168438,0
+STAT,(NULL),nPop,4,11034571,3476617,4042939,3515015,0
+STAT,(NULL),nPush,4,11034570,3544521,4170554,3319495,0
+STAT,(NULL),nPushInit,4,1,0,1,0,0
+STAT,(NULL),qPopEmpty,4,6259,1618,3034,1607,0
+STAT,(NULL),qPopEmptyCyc,4,1829141,529595,759134,540412,0
+STAT,(NULL),qPopFast,4,10861965,3422221,3979716,3460028,0
+STAT,(NULL),qPopFastCyc,4,6822173892,2221645746,2153028415,2447499731,0
+STAT,(NULL),qPopLocal,4,172366,54304,63157,54905,0
+STAT,(NULL),qPopLocalCyc,4,476356335,154927567,152912249,168516519,0
+STAT,(NULL),qPopRemote,4,240,92,66,82,0
+STAT,(NULL),qPopRemoteCyc,4,432413,166794,112473,153146,0
+==== BENCHMARK TOOK 19.659
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-obim  ===
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl obim -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/ljournal-2008.gr
+INFO: Hostname rack-castor
+Read 5363260 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 16
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 126
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,6617499792,1657485746,2651015761,2308998285,0
+STAT,(NULL),BarrierTime,4,530104,281237,36595,212272,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,5537120,1083726,1066941,3386453,0
+STAT,(NULL),EmptyWork,4,1505316858,532408056,488193765,484715037,0
+STAT,(NULL),GaloisTime,4,5599766417,1969162873,1763608946,1866994598,0
+STAT,(NULL),InitPushTime,4,354970,3208,280497,71265,0
+STAT,(NULL),Iterations,4,11069949,3790338,3991781,3287830,0
+STAT,(NULL),LoopTime,4,26095411988,26095411988,0,0,0
+STAT,(NULL),MeminfoPost,4,495,165,165,165,0
+STAT,(NULL),MeminfoPre,4,495,165,165,165,0
+STAT,(NULL),NumaPost,4,3520,1905,771,744,100
+STAT,(NULL),PopTime,4,15041373432,5302960143,4734196871,5004216418,0
+STAT,(NULL),PushTime,4,9302735402,3111195201,3018700390,3172839811,0
+STAT,(NULL),RusageSys,4,0,0,0,0,0
+STAT,(NULL),RusageUser,4,34660000,34660000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,26097491249,26097491249,0,0,0
+STAT,(NULL),TotalTime,4,41527435720,41527435720,0,0,0
+STAT,(NULL),UserTime,4,44708934907,14471063673,15382118621,14855752613,0
+STAT,(NULL),Work,4,76163850542,25387963560,25387939761,25387947221,0
+STAT,(NULL),nBad,4,16569818,4047220,6672955,5849643,0
+STAT,(NULL),nEmpty,4,5896978,2070840,2092562,1733576,0
+STAT,(NULL),nEmptyPop,4,651,249,150,252,0
+STAT,(NULL),nOverall,4,94449576,29142072,35373223,29934281,0
+STAT,(NULL),nPop,4,11069949,3790338,3991781,3287830,0
+STAT,(NULL),nPush,4,11069948,3640834,4080548,3348566,0
+STAT,(NULL),nPushInit,4,1,0,1,0,0
+STAT,(NULL),qPopEmpty,4,10601,2202,2960,5439,0
+STAT,(NULL),qPopEmptyCyc,4,3306885,928599,714890,1663396,0
+STAT,(NULL),qPopFast,4,10896776,3731044,3929320,3236412,0
+STAT,(NULL),qPopFastCyc,4,6720436066,2363157957,2126584954,2230693155,0
+STAT,(NULL),qPopLocal,4,172920,59210,62355,51355,0
+STAT,(NULL),qPopLocalCyc,4,465445516,164277775,149656024,151511717,0
+STAT,(NULL),qPopRemote,4,253,84,106,63,0
+STAT,(NULL),qPopRemoteCyc,4,489234,211686,149952,127596,0
+==== BENCHMARK TOOK 19.669
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-obim  ===
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl obim -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/ljournal-2008.gr
+INFO: Hostname rack-castor
+Read 5363260 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 16
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 126
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,6976603557,1594202713,2912847435,2469553409,0
+STAT,(NULL),BarrierTime,4,511892,281370,2948,227574,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,5579960,1076555,1854611,2648794,0
+STAT,(NULL),EmptyWork,4,1547035387,544867110,493350514,508817763,0
+STAT,(NULL),GaloisTime,4,5788097813,2063978224,1797161190,1926958399,0
+STAT,(NULL),InitPushTime,4,325138,3152,279746,42240,0
+STAT,(NULL),Iterations,4,11160490,3754192,4073624,3332674,0
+STAT,(NULL),LoopTime,4,26870984473,26870984473,0,0,0
+STAT,(NULL),MeminfoPost,4,495,165,165,165,0
+STAT,(NULL),MeminfoPre,4,495,165,165,165,0
+STAT,(NULL),NumaPost,4,3534,1902,776,756,100
+STAT,(NULL),PopTime,4,15400789437,5458703320,4831371466,5110714651,0
+STAT,(NULL),PushTime,4,9593193647,3237139292,3088267241,3267787114,0
+STAT,(NULL),RusageSys,4,0,0,0,0,0
+STAT,(NULL),RusageUser,4,35720000,35720000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,26872299342,26872299342,0,0,0
+STAT,(NULL),TotalTime,4,40267493582,40267493582,0,0,0
+STAT,(NULL),UserTime,4,46156706304,14858023765,15951797604,15346884935,0
+STAT,(NULL),Work,4,78491559407,26163847453,26163856154,26163855800,0
+STAT,(NULL),nBad,4,17222900,3837662,7261947,6123291,0
+STAT,(NULL),nEmpty,4,5972428,2058939,2167116,1746373,0
+STAT,(NULL),nEmptyPop,4,905,305,160,440,0
+STAT,(NULL),nOverall,4,95102658,27937169,36771563,30393926,0
+STAT,(NULL),nPop,4,11160490,3754192,4073624,3332674,0
+STAT,(NULL),nPush,4,11160489,3627152,4181335,3352002,0
+STAT,(NULL),nPushInit,4,1,0,1,0,0
+STAT,(NULL),qPopEmpty,4,12619,3175,4155,5289,0
+STAT,(NULL),qPopEmptyCyc,4,3036311,831000,944097,1261214,0
+STAT,(NULL),qPopFast,4,10985917,3695441,4009923,3280553,0
+STAT,(NULL),qPopFastCyc,4,6877785048,2434873981,2170118560,2272792507,0
+STAT,(NULL),qPopLocal,4,174332,58642,63633,52057,0
+STAT,(NULL),qPopLocalCyc,4,472434633,165165487,153474134,153795012,0
+STAT,(NULL),qPopRemote,4,241,109,68,64,0
+STAT,(NULL),qPopRemoteCyc,4,385729,140745,121009,123975,0
+==== BENCHMARK TOOK 19.102
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-obim  ===
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl obim -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/ljournal-2008.gr
+INFO: Hostname rack-castor
+Read 5363260 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 16
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 126
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,6651902513,2335099242,2820056013,1496747258,0
+STAT,(NULL),BarrierTime,4,517384,278027,15385,223972,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,3526031,712428,230267,2583336,0
+STAT,(NULL),EmptyWork,4,1585505308,505216348,510232553,570056407,0
+STAT,(NULL),GaloisTime,4,5969192866,1975865216,1840645374,2152682276,0
+STAT,(NULL),InitPushTime,4,318519,3181,272774,42564,0
+STAT,(NULL),Iterations,4,11029157,3410674,4160953,3457530,0
+STAT,(NULL),LoopTime,4,27242242906,27242242906,0,0,0
+STAT,(NULL),MeminfoPost,4,495,165,165,165,0
+STAT,(NULL),MeminfoPre,4,495,165,165,165,0
+STAT,(NULL),NumaPost,4,3530,2082,775,573,100
+STAT,(NULL),PopTime,4,15882282124,5227185028,4930918154,5724178942,0
+STAT,(NULL),PushTime,4,9592611163,3216889525,3083629362,3292092276,0
+STAT,(NULL),RusageSys,4,0,0,0,0,0
+STAT,(NULL),RusageUser,4,36204000,36204000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,27243794375,27243794375,0,0,0
+STAT,(NULL),TotalTime,4,41174301210,41174301210,0,0,0
+STAT,(NULL),UserTime,4,46521795721,15592421575,16152645035,14776729111,0
+STAT,(NULL),Work,4,79555075805,26518358589,26518353044,26518364172,0
+STAT,(NULL),nBad,4,16118219,5709965,6948392,3459862,0
+STAT,(NULL),nEmpty,4,5868111,1789740,2188418,1889953,0
+STAT,(NULL),nEmptyPop,4,710,242,67,401,0
+STAT,(NULL),nOverall,4,93997977,30888321,37097890,26011766,0
+STAT,(NULL),nPop,4,11029157,3410674,4160953,3457530,0
+STAT,(NULL),nPush,4,11029156,3563378,4168696,3297082,0
+STAT,(NULL),nPushInit,4,1,0,1,0,0
+STAT,(NULL),qPopEmpty,4,6685,1833,648,4204,0
+STAT,(NULL),qPopEmptyCyc,4,2022740,594424,207480,1220836,0
+STAT,(NULL),qPopFast,4,10856637,3357315,4095858,3403464,0
+STAT,(NULL),qPopFastCyc,4,7079001647,2326378729,2212826756,2539796162,0
+STAT,(NULL),qPopLocal,4,172281,53276,64996,54009,0
+STAT,(NULL),qPopLocalCyc,4,485299597,159045146,153384262,172870189,0
+STAT,(NULL),qPopRemote,4,239,83,99,57,0
+STAT,(NULL),qPopRemoteCyc,4,452009,178117,144992,128900,0
+==== BENCHMARK TOOK 19.423
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-obim  ===
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl obim -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/ljournal-2008.gr
+INFO: Hostname rack-castor
+Read 5363260 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 16
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 126
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,7061482942,1614529953,3110169164,2336783825,0
+STAT,(NULL),BarrierTime,4,498514,265780,5094,227640,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,3860143,1020156,2000259,839728,0
+STAT,(NULL),EmptyWork,4,1592508218,572433458,505543421,514531339,0
+STAT,(NULL),GaloisTime,4,6097777767,2175339688,1869263621,2053174458,0
+STAT,(NULL),InitPushTime,4,325177,3184,278561,43432,0
+STAT,(NULL),Iterations,4,11107541,3698795,4220346,3188400,0
+STAT,(NULL),LoopTime,4,27852705676,27852705676,0,0,0
+STAT,(NULL),MeminfoPost,4,495,165,165,165,0
+STAT,(NULL),MeminfoPre,4,495,165,165,165,0
+STAT,(NULL),NumaPost,4,3531,1891,781,759,100
+STAT,(NULL),PopTime,4,16139662593,5751746056,4999526824,5388389713,0
+STAT,(NULL),PushTime,4,10109035680,3395294531,3220065922,3493675227,0
+STAT,(NULL),RusageSys,4,4000,4000,0,0,0
+STAT,(NULL),RusageUser,4,37048000,37048000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,27854175779,27854175779,0,0,0
+STAT,(NULL),TotalTime,4,42905648166,42905648166,0,0,0
+STAT,(NULL),UserTime,4,47476938038,15244087583,16543530608,15689319847,0
+STAT,(NULL),Work,4,81419953017,27139982680,27139984545,27139985792,0
+STAT,(NULL),nBad,4,16739023,3703259,7432719,5603045,0
+STAT,(NULL),nEmpty,4,5930914,2019891,2221570,1689453,0
+STAT,(NULL),nEmptyPop,4,747,249,236,262,0
+STAT,(NULL),nOverall,4,94618781,27826673,38287902,28504206,0
+STAT,(NULL),nPop,4,11107541,3698795,4220346,3188400,0
+STAT,(NULL),nPush,4,11107540,3554987,4358649,3193904,0
+STAT,(NULL),nPushInit,4,1,0,1,0,0
+STAT,(NULL),qPopEmpty,4,7701,2309,4064,1328,0
+STAT,(NULL),qPopEmptyCyc,4,2200043,730303,1008999,460741,0
+STAT,(NULL),qPopFast,4,10933788,3640928,4154355,3138505,0
+STAT,(NULL),qPopFastCyc,4,7196699396,2560851779,2245859766,2389987851,0
+STAT,(NULL),qPopLocal,4,173502,57778,65926,49798,0
+STAT,(NULL),qPopLocalCyc,4,492502065,173294986,155778940,163428139,0
+STAT,(NULL),qPopRemote,4,251,89,65,97,0
+STAT,(NULL),qPopRemoteCyc,4,468500,167298,114905,186297,0
+==== BENCHMARK TOOK 20.375
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-obim  ===
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl obim -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/ljournal-2008.gr
+INFO: Hostname rack-castor
+Read 5363260 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 16
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 126
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,6821384523,1606944537,2874011270,2340428716,0
+STAT,(NULL),BarrierTime,4,525248,282558,8650,234040,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,3562667,1032666,1758337,771664,0
+STAT,(NULL),EmptyWork,4,1515272102,538014356,486988364,490269382,0
+STAT,(NULL),GaloisTime,4,5755504600,2046468749,1788914405,1920121446,0
+STAT,(NULL),InitPushTime,4,328877,3020,282005,43852,0
+STAT,(NULL),Iterations,4,11094442,3790463,4001643,3302336,0
+STAT,(NULL),LoopTime,4,26672394786,26672394786,0,0,0
+STAT,(NULL),MeminfoPost,4,495,165,165,165,0
+STAT,(NULL),MeminfoPre,4,495,165,165,165,0
+STAT,(NULL),NumaPost,4,3540,1895,776,586,283
+STAT,(NULL),PopTime,4,15080326065,5319351595,4746051168,5014923302,0
+STAT,(NULL),PushTime,4,9496827995,3203981655,3053935151,3238911189,0
+STAT,(NULL),RusageSys,4,0,0,0,0,0
+STAT,(NULL),RusageUser,4,35436000,35436000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,26673943196,26673943196,0,0,0
+STAT,(NULL),TotalTime,4,40103864522,40103864522,0,0,0
+STAT,(NULL),UserTime,4,46026063417,14850323977,15881549829,15294189611,0
+STAT,(NULL),Work,4,77877728462,25959240992,25959242156,25959245314,0
+STAT,(NULL),nBad,4,16709383,3760242,7121666,5827475,0
+STAT,(NULL),nEmpty,4,5918863,2073386,2093275,1752202,0
+STAT,(NULL),nEmptyPop,4,657,252,178,227,0
+STAT,(NULL),nOverall,4,94589141,27833983,36769869,29985289,0
+STAT,(NULL),nPop,4,11094442,3790463,4001643,3302336,0
+STAT,(NULL),nPush,4,11094441,3546943,4138474,3409024,0
+STAT,(NULL),nPushInit,4,1,0,1,0,0
+STAT,(NULL),qPopEmpty,4,7467,2106,3926,1435,0
+STAT,(NULL),qPopEmptyCyc,4,2077921,686573,901161,490187,0
+STAT,(NULL),qPopFast,4,10920896,3731170,3939063,3250663,0
+STAT,(NULL),qPopFastCyc,4,6736477166,2375720461,2129957260,2230799445,0
+STAT,(NULL),qPopLocal,4,173302,59211,62509,51582,0
+STAT,(NULL),qPopLocalCyc,4,465105843,165275080,147892257,151938506,0
+STAT,(NULL),qPopRemote,4,244,82,71,91,0
+STAT,(NULL),qPopRemoteCyc,4,440851,150076,124034,166741,0
+==== BENCHMARK TOOK 18.953
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-obim  ===
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl obim -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/ljournal-2008.gr
+INFO: Hostname rack-castor
+Read 5363260 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 16
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 126
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,6905398231,1699120855,2901346263,2304931113,0
+STAT,(NULL),BarrierTime,4,522094,285550,3486,233058,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,5897462,2531362,72507,3293593,0
+STAT,(NULL),EmptyWork,4,1472029486,525613939,470103664,476311883,0
+STAT,(NULL),GaloisTime,4,5625293733,1990418579,1758057221,1876817933,0
+STAT,(NULL),InitPushTime,4,331074,3596,284790,42688,0
+STAT,(NULL),Iterations,4,11115708,3873834,3907091,3334783,0
+STAT,(NULL),LoopTime,4,26512953720,26512953720,0,0,0
+STAT,(NULL),MeminfoPost,4,495,165,165,165,0
+STAT,(NULL),MeminfoPre,4,495,165,165,165,0
+STAT,(NULL),NumaPost,4,3545,1901,773,588,283
+STAT,(NULL),PopTime,4,14662031497,5177490785,4626285943,4858254769,0
+STAT,(NULL),PushTime,4,9585991660,3189032328,3095259855,3301699477,0
+STAT,(NULL),RusageSys,4,0,0,0,0,0
+STAT,(NULL),RusageUser,4,35220000,35220000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,26514329678,26514329678,0,0,0
+STAT,(NULL),TotalTime,4,40560261948,40560261948,0,0,0
+STAT,(NULL),UserTime,4,46048461588,14914805518,15850124915,15283531155,0
+STAT,(NULL),Work,4,77399867502,25799949006,25799959564,25799958932,0
+STAT,(NULL),nBad,4,16886630,4039612,7149370,5697648,0
+STAT,(NULL),nEmpty,4,5934351,2116888,2043353,1774110,0
+STAT,(NULL),nEmptyPop,4,602,265,37,300,0
+STAT,(NULL),nOverall,4,94766388,29124682,36703450,28938256,0
+STAT,(NULL),nPop,4,11115708,3873834,3907091,3334783,0
+STAT,(NULL),nPush,4,11115707,3697578,4187794,3230335,0
+STAT,(NULL),nPushInit,4,1,0,1,0,0
+STAT,(NULL),qPopEmpty,4,5899,2236,269,3394,0
+STAT,(NULL),qPopEmptyCyc,4,3104259,639535,123385,2341339,0
+STAT,(NULL),qPopFast,4,10941830,3813236,3845965,3282629,0
+STAT,(NULL),qPopFastCyc,4,6556646077,2318445073,2073625771,2164575233,0
+STAT,(NULL),qPopLocal,4,173633,60514,61030,52089,0
+STAT,(NULL),qPopLocalCyc,4,452754658,159506602,144819515,148428541,0
+STAT,(NULL),qPopRemote,4,245,84,96,65,0
+STAT,(NULL),qPopRemoteCyc,4,383569,123801,140414,119354,0
+==== BENCHMARK TOOK 19.138
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-obim  ===
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl obim -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/ljournal-2008.gr
+INFO: Hostname rack-castor
+Read 5363260 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 16
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 126
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,6615829152,1524473162,2673423241,2417932749,0
+STAT,(NULL),BarrierTime,4,513894,280007,3621,230266,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,3345170,2436000,129703,779467,0
+STAT,(NULL),EmptyWork,4,1490413260,525833289,477363881,487216090,0
+STAT,(NULL),GaloisTime,4,5525427251,1932392079,1744750712,1848284460,0
+STAT,(NULL),InitPushTime,4,320082,3089,276663,40330,0
+STAT,(NULL),Iterations,4,11102480,4018306,3912712,3171462,0
+STAT,(NULL),LoopTime,4,25931803874,25931803874,0,0,0
+STAT,(NULL),MeminfoPost,4,495,165,165,165,0
+STAT,(NULL),MeminfoPre,4,495,165,165,165,0
+STAT,(NULL),NumaPost,4,3534,1901,959,574,100
+STAT,(NULL),PopTime,4,14663849814,5107394255,4641497952,4914957607,0
+STAT,(NULL),PushTime,4,9173536191,3069270120,2987748121,3116517950,0
+STAT,(NULL),RusageSys,4,0,0,0,0,0
+STAT,(NULL),RusageUser,4,34388000,34388000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,25933125663,25933125663,0,0,0
+STAT,(NULL),TotalTime,4,39175930108,39175930108,0,0,0
+STAT,(NULL),UserTime,4,44709473906,14551344520,15337196775,14820932611,0
+STAT,(NULL),Work,4,75566194380,25188723975,25188732951,25188737454,0
+STAT,(NULL),nBad,4,16637088,3681537,6777108,6178443,0
+STAT,(NULL),nEmpty,4,5928827,2224981,2061664,1642182,0
+STAT,(NULL),nEmptyPop,4,694,434,6,254,0
+STAT,(NULL),nOverall,4,94516846,28475298,35579068,30462480,0
+STAT,(NULL),nPop,4,11102480,4018306,3912712,3171462,0
+STAT,(NULL),nPush,4,11102479,3627202,4039559,3435718,0
+STAT,(NULL),nPushInit,4,1,0,1,0,0
+STAT,(NULL),qPopEmpty,4,8363,5036,1136,2191,0
+STAT,(NULL),qPopEmptyCyc,4,2083981,1155797,307283,620901,0
+STAT,(NULL),qPopFast,4,10928811,3955482,3851496,3121833,0
+STAT,(NULL),qPopFastCyc,4,6564375525,2290526011,2086041821,2187807693,0
+STAT,(NULL),qPopLocal,4,173427,62770,61119,49538,0
+STAT,(NULL),qPopLocalCyc,4,450721241,157112856,145511663,148096722,0
+STAT,(NULL),qPopRemote,4,242,54,97,91,0
+STAT,(NULL),qPopRemoteCyc,4,408467,100444,138312,169711,0
+==== BENCHMARK TOOK 18.674

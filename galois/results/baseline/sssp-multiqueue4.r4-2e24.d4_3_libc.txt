@@ -1,0 +1,490 @@
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-multiqueue4  ===
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl multiqueue4 -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/random/r4-2e24.gr
+INFO: Hostname rack-castor
+Read 16777216 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 1
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 8445
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,0,0,0,0,0
+STAT,(NULL),BarrierTime,4,38908,21456,15811,1641,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,217143353,72221189,70184618,74737546,0
+STAT,(NULL),EmptyWork,4,3119622935,1023373907,1074220007,1022029021,0
+STAT,(NULL),GaloisTime,4,20254410969,6816689557,6317339485,7120381927,0
+STAT,(NULL),InitPushTime,4,254320,84480,87815,82025,0
+STAT,(NULL),Iterations,4,22444621,7392169,8241233,6811219,0
+STAT,(NULL),LoopTime,4,83153315445,83153315445,0,0,0
+STAT,(NULL),MeminfoPost,4,1539,513,513,513,0
+STAT,(NULL),MeminfoPre,4,1539,513,513,513,0
+STAT,(NULL),NumaPost,4,4761,3001,813,803,144
+STAT,(NULL),PopTime,4,30751290643,10274022361,10050567451,10426700831,0
+STAT,(NULL),PushTime,4,101862012727,33977215370,33732683668,34152113689,0
+STAT,(NULL),RusageSys,4,0,0,0,0,0
+STAT,(NULL),RusageUser,4,110796000,110796000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,83154117085,83154117085,0,0,0
+STAT,(NULL),TotalTime,4,99238254836,99238254836,0,0,0
+STAT,(NULL),UserTime,4,87281218946,28998377368,29916904749,28365936829,0
+STAT,(NULL),Work,4,243485999670,81161991684,81161993814,81162014172,0
+STAT,(NULL),nBad,4,0,0,0,0,0
+STAT,(NULL),nEmpty,4,5667406,1873218,2067261,1726927,0
+STAT,(NULL),nEmptyPop,4,701445,231021,257558,212866,0
+STAT,(NULL),nOverall,4,67108861,22081285,24690853,20336723,0
+STAT,(NULL),nPop,4,22444621,7392169,8241233,6811219,0
+STAT,(NULL),nPush,4,22444618,7409216,8293519,6741883,0
+STAT,(NULL),nPushInit,4,3,1,1,1,0
+==== BENCHMARK TOOK 45.946
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-multiqueue4  ===
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl multiqueue4 -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/random/r4-2e24.gr
+INFO: Hostname rack-castor
+Read 16777216 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 1
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 8445
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,0,0,0,0,0
+STAT,(NULL),BarrierTime,4,27702,14622,9733,3347,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,207699750,70321913,65064573,72313264,0
+STAT,(NULL),EmptyWork,4,3081832575,1005854485,1060447417,1015530673,0
+STAT,(NULL),GaloisTime,4,20294853347,6824006350,6386128770,7084718227,0
+STAT,(NULL),InitPushTime,4,238004,80850,78110,79044,0
+STAT,(NULL),Iterations,4,22444624,7353839,8233829,6856956,0
+STAT,(NULL),LoopTime,4,83367153726,83367153726,0,0,0
+STAT,(NULL),MeminfoPost,4,1539,513,513,513,0
+STAT,(NULL),MeminfoPre,4,1539,513,513,513,0
+STAT,(NULL),NumaPost,4,4779,3008,810,817,144
+STAT,(NULL),PopTime,4,30689538293,10263030178,10007652962,10418855153,0
+STAT,(NULL),PushTime,4,102037788693,34071383279,33792138226,34174267188,0
+STAT,(NULL),RusageSys,4,48000,48000,0,0,0
+STAT,(NULL),RusageUser,4,110788000,110788000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,83367978724,83367978724,0,0,0
+STAT,(NULL),TotalTime,4,100144027016,100144027016,0,0,0
+STAT,(NULL),UserTime,4,87248066167,28951997093,29875160930,28420908144,0
+STAT,(NULL),Work,4,243560066391,81186688986,81186688940,81186688465,0
+STAT,(NULL),nBad,4,0,0,0,0,0
+STAT,(NULL),nEmpty,4,5667409,1871026,2065881,1730502,0
+STAT,(NULL),nEmptyPop,4,701441,229819,257331,214291,0
+STAT,(NULL),nOverall,4,67108861,21933884,24674146,20500831,0
+STAT,(NULL),nPop,4,22444624,7353839,8233829,6856956,0
+STAT,(NULL),nPush,4,22444621,7367527,8290053,6787041,0
+STAT,(NULL),nPushInit,4,3,1,1,1,0
+==== BENCHMARK TOOK 46.269
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-multiqueue4  ===
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl multiqueue4 -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/random/r4-2e24.gr
+INFO: Hostname rack-castor
+Read 16777216 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 1
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 8445
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,0,0,0,0,0
+STAT,(NULL),BarrierTime,4,63920,32948,27663,3309,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,209410327,72357686,65115083,71937558,0
+STAT,(NULL),EmptyWork,4,3068734047,1016075176,1046095619,1006563252,0
+STAT,(NULL),GaloisTime,4,20190455472,6791842373,6327319307,7071293792,0
+STAT,(NULL),InitPushTime,4,274359,89049,86007,99303,0
+STAT,(NULL),Iterations,4,22444627,7357937,8219248,6867442,0
+STAT,(NULL),LoopTime,4,83420559961,83420559961,0,0,0
+STAT,(NULL),MeminfoPost,4,1539,513,513,513,0
+STAT,(NULL),MeminfoPre,4,1539,513,513,513,0
+STAT,(NULL),NumaPost,4,4774,3010,805,632,327
+STAT,(NULL),PopTime,4,30401018997,10178278419,9930992457,10291748121,0
+STAT,(NULL),PushTime,4,102376993159,34152285352,33913817163,34310890644,0
+STAT,(NULL),RusageSys,4,0,0,0,0,0
+STAT,(NULL),RusageUser,4,110856000,110856000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,83421380118,83421380118,0,0,0
+STAT,(NULL),TotalTime,4,99621592734,99621592734,0,0,0
+STAT,(NULL),UserTime,4,87356656657,28990251108,29917750413,28448655136,0
+STAT,(NULL),Work,4,243603567131,81201189308,81201189410,81201188413,0
+STAT,(NULL),nBad,4,0,0,0,0,0
+STAT,(NULL),nEmpty,4,5667412,1856373,2052390,1758649,0
+STAT,(NULL),nEmptyPop,4,701437,229947,256865,214625,0
+STAT,(NULL),nOverall,4,67108861,22001358,24665791,20441712,0
+STAT,(NULL),nPop,4,22444627,7357937,8219248,6867442,0
+STAT,(NULL),nPush,4,22444624,7347492,8335887,6761245,0
+STAT,(NULL),nPushInit,4,3,1,1,1,0
+==== BENCHMARK TOOK 46.128
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-multiqueue4  ===
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl multiqueue4 -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/random/r4-2e24.gr
+INFO: Hostname rack-castor
+Read 16777216 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 1
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 8445
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,0,0,0,0,0
+STAT,(NULL),BarrierTime,4,10272,4172,3888,2212,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,214052438,72474347,67292078,74286013,0
+STAT,(NULL),EmptyWork,4,3056813632,1012875518,1042300891,1001637223,0
+STAT,(NULL),GaloisTime,4,19824830781,6573105961,6238240976,7013483844,0
+STAT,(NULL),InitPushTime,4,262046,87316,90602,84128,0
+STAT,(NULL),Iterations,4,22444618,7509614,8151484,6783520,0
+STAT,(NULL),LoopTime,4,82606360758,82606360758,0,0,0
+STAT,(NULL),MeminfoPost,4,1539,513,513,513,0
+STAT,(NULL),MeminfoPre,4,1539,513,513,513,0
+STAT,(NULL),NumaPost,4,4762,3001,813,621,327
+STAT,(NULL),PopTime,4,30360055658,10125574361,9911201479,10323279818,0
+STAT,(NULL),PushTime,4,101169164859,33707985144,33560475401,33900704314,0
+STAT,(NULL),RusageSys,4,4000,4000,0,0,0
+STAT,(NULL),RusageUser,4,109808000,109808000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,82607250620,82607250620,0,0,0
+STAT,(NULL),TotalTime,4,98514677488,98514677488,0,0,0
+STAT,(NULL),UserTime,4,86695992180,28948286676,29620792286,28126913218,0
+STAT,(NULL),Work,4,241321192937,80440391501,80440397837,80440403599,0
+STAT,(NULL),nBad,4,0,0,0,0,0
+STAT,(NULL),nEmpty,4,5667403,1910199,2048766,1708438,0
+STAT,(NULL),nEmptyPop,4,701433,234691,254745,211997,0
+STAT,(NULL),nOverall,4,67108861,22394376,24417149,20297336,0
+STAT,(NULL),nPop,4,22444618,7509614,8151484,6783520,0
+STAT,(NULL),nPush,4,22444615,7374114,8224149,6846352,0
+STAT,(NULL),nPushInit,4,3,1,1,1,0
+==== BENCHMARK TOOK 45.558
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-multiqueue4  ===
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl multiqueue4 -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/random/r4-2e24.gr
+INFO: Hostname rack-castor
+Read 16777216 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 1
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 8445
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,0,0,0,0,0
+STAT,(NULL),BarrierTime,4,23035,12842,7961,2232,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,210060490,71415261,65764262,72880967,0
+STAT,(NULL),EmptyWork,4,3049157343,995746881,1046316017,1007094445,0
+STAT,(NULL),GaloisTime,4,20370780550,6889916100,6331493442,7149371008,0
+STAT,(NULL),InitPushTime,4,252487,85901,84194,82392,0
+STAT,(NULL),Iterations,4,22444628,7331083,8268907,6844638,0
+STAT,(NULL),LoopTime,4,83411391259,83411391259,0,0,0
+STAT,(NULL),MeminfoPost,4,1539,513,513,513,0
+STAT,(NULL),MeminfoPre,4,1539,513,513,513,0
+STAT,(NULL),NumaPost,4,4765,3012,991,618,144
+STAT,(NULL),PopTime,4,30917706943,10353151513,10090067038,10474488392,0
+STAT,(NULL),PushTime,4,101926328551,33960708348,33808204112,34157416091,0
+STAT,(NULL),RusageSys,4,0,0,0,0,0
+STAT,(NULL),RusageUser,4,110996000,110996000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,83412194613,83412194613,0,0,0
+STAT,(NULL),TotalTime,4,99375203140,99375203140,0,0,0
+STAT,(NULL),UserTime,4,87440370379,29033863516,29962956770,28443550093,0
+STAT,(NULL),Work,4,243914678175,81304889141,81304894182,81304894852,0
+STAT,(NULL),nBad,4,0,0,0,0,0
+STAT,(NULL),nEmpty,4,5667413,1858440,2076443,1732530,0
+STAT,(NULL),nEmptyPop,4,701445,229108,258425,213912,0
+STAT,(NULL),nOverall,4,67108861,21890353,24775969,20442539,0
+STAT,(NULL),nPop,4,22444628,7331083,8268907,6844638,0
+STAT,(NULL),nPush,4,22444625,7265405,8329473,6849747,0
+STAT,(NULL),nPushInit,4,3,1,1,1,0
+==== BENCHMARK TOOK 46.007
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-multiqueue4  ===
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl multiqueue4 -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/random/r4-2e24.gr
+INFO: Hostname rack-castor
+Read 16777216 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 1
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 8445
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,0,0,0,0,0
+STAT,(NULL),BarrierTime,4,14768,7236,3929,3603,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,210137119,71058308,65168179,73910632,0
+STAT,(NULL),EmptyWork,4,3010344570,992590404,1020908671,996845495,0
+STAT,(NULL),GaloisTime,4,19769117867,6606856763,6222569973,6939691131,0
+STAT,(NULL),InitPushTime,4,252487,83980,87396,81111,0
+STAT,(NULL),Iterations,4,22444632,7422271,8121088,6901273,0
+STAT,(NULL),LoopTime,4,82084118673,82084118673,0,0,0
+STAT,(NULL),MeminfoPost,4,1539,513,513,513,0
+STAT,(NULL),MeminfoPre,4,1539,513,513,513,0
+STAT,(NULL),NumaPost,4,4766,3003,814,623,326
+STAT,(NULL),PopTime,4,30278599815,10104766232,9935310507,10238523076,0
+STAT,(NULL),PushTime,4,100103257820,33369204884,33239448261,33494604675,0
+STAT,(NULL),RusageSys,4,4000,4000,0,0,0
+STAT,(NULL),RusageUser,4,109180000,109180000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,82084981675,82084981675,0,0,0
+STAT,(NULL),TotalTime,4,98211279688,98211279688,0,0,0
+STAT,(NULL),UserTime,4,86580211337,28839412357,29500484546,28240314434,0
+STAT,(NULL),Work,4,239951964803,79983987432,79983987977,79983989394,0
+STAT,(NULL),nBad,4,0,0,0,0,0
+STAT,(NULL),nEmpty,4,5667417,1879945,2036842,1750630,0
+STAT,(NULL),nEmptyPop,4,701433,231955,253798,215680,0
+STAT,(NULL),nOverall,4,67108861,22163800,24340118,20604943,0
+STAT,(NULL),nPop,4,22444632,7422271,8121088,6901273,0
+STAT,(NULL),nPush,4,22444629,7396297,8168322,6880010,0
+STAT,(NULL),nPushInit,4,3,1,1,1,0
+==== BENCHMARK TOOK 45.488
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-multiqueue4  ===
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl multiqueue4 -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/random/r4-2e24.gr
+INFO: Hostname rack-castor
+Read 16777216 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 1
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 8445
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,0,0,0,0,0
+STAT,(NULL),BarrierTime,4,31578,14320,12801,4457,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,207672491,69844282,65756835,72071374,0
+STAT,(NULL),EmptyWork,4,3045825816,1011211438,1028862432,1005751946,0
+STAT,(NULL),GaloisTime,4,19539617699,6613217776,6166719023,6759680900,0
+STAT,(NULL),InitPushTime,4,242254,81840,78326,82088,0
+STAT,(NULL),Iterations,4,22444630,7297537,8067339,7079754,0
+STAT,(NULL),LoopTime,4,81837264096,81837264096,0,0,0
+STAT,(NULL),MeminfoPost,4,1539,513,513,513,0
+STAT,(NULL),MeminfoPre,4,1539,513,513,513,0
+STAT,(NULL),NumaPost,4,4774,3006,809,815,144
+STAT,(NULL),PopTime,4,30169657209,10142688140,9878590725,10148378344,0
+STAT,(NULL),PushTime,4,99186722279,33078275342,32926903943,33181542994,0
+STAT,(NULL),RusageSys,4,4000,4000,0,0,0
+STAT,(NULL),RusageUser,4,108388000,108388000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,81838124504,81838124504,0,0,0
+STAT,(NULL),TotalTime,4,97492747278,97492747278,0,0,0
+STAT,(NULL),UserTime,4,86042262628,28482015418,29330420211,28229826999,0
+STAT,(NULL),Work,4,238192049925,79397349936,79397350205,79397349784,0
+STAT,(NULL),nBad,4,0,0,0,0,0
+STAT,(NULL),nEmpty,4,5667415,1844162,2028125,1795128,0
+STAT,(NULL),nEmptyPop,4,701450,228068,252120,221262,0
+STAT,(NULL),nOverall,4,67108861,21812056,24163397,21133408,0
+STAT,(NULL),nPop,4,22444630,7297537,8067339,7079754,0
+STAT,(NULL),nPush,4,22444627,7277627,8067737,7099263,0
+STAT,(NULL),nPushInit,4,3,1,1,1,0
+==== BENCHMARK TOOK 45.192
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-multiqueue4  ===
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl multiqueue4 -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/random/r4-2e24.gr
+INFO: Hostname rack-castor
+Read 16777216 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 1
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 8445
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,0,0,0,0,0
+STAT,(NULL),BarrierTime,4,151622,89424,59853,2345,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,213185744,73116444,67380368,72688932,0
+STAT,(NULL),EmptyWork,4,3025539527,1004038813,1023174356,998326358,0
+STAT,(NULL),GaloisTime,4,20354041998,6999724289,6339108673,7015209036,0
+STAT,(NULL),InitPushTime,4,213968,109773,30376,73819,0
+STAT,(NULL),Iterations,4,22444631,7088429,8224112,7132090,0
+STAT,(NULL),LoopTime,4,83839855112,83839855112,0,0,0
+STAT,(NULL),MeminfoPost,4,1539,513,513,513,0
+STAT,(NULL),MeminfoPre,4,1539,513,513,513,0
+STAT,(NULL),NumaPost,4,4752,2997,809,802,144
+STAT,(NULL),PopTime,4,30789780204,10368397125,10089859688,10331523391,0
+STAT,(NULL),PushTime,4,102828712441,34389638996,34094347946,34344725499,0
+STAT,(NULL),RusageSys,4,0,0,0,0,0
+STAT,(NULL),RusageUser,4,111400000,111400000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,83840831404,83840831404,0,0,0
+STAT,(NULL),TotalTime,4,100850076340,100850076340,0,0,0
+STAT,(NULL),UserTime,4,87608521565,28771675861,29992723888,28844121816,0
+STAT,(NULL),Work,4,244820062791,81606685202,81606688897,81606688692,0
+STAT,(NULL),nBad,4,0,0,0,0,0
+STAT,(NULL),nEmpty,4,5667416,1795118,2047258,1825040,0
+STAT,(NULL),nEmptyPop,4,701455,221531,257027,222897,0
+STAT,(NULL),nOverall,4,67108861,21176265,24703841,21228755,0
+STAT,(NULL),nPop,4,22444631,7088429,8224112,7132090,0
+STAT,(NULL),nPush,4,22444628,7012959,8371681,7059988,0
+STAT,(NULL),nPushInit,4,3,1,1,1,0
+==== BENCHMARK TOOK 46.675
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-multiqueue4  ===
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl multiqueue4 -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/random/r4-2e24.gr
+INFO: Hostname rack-castor
+Read 16777216 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 1
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 8445
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,0,0,0,0,0
+STAT,(NULL),BarrierTime,4,30263,15753,10170,4340,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,216510679,73493775,69270800,73746104,0
+STAT,(NULL),EmptyWork,4,3084833574,1030316477,1049637344,1004879753,0
+STAT,(NULL),GaloisTime,4,20504960012,6952129432,6375851613,7176978967,0
+STAT,(NULL),InitPushTime,4,242193,81888,79549,80756,0
+STAT,(NULL),Iterations,4,22444622,7268814,8281772,6894036,0
+STAT,(NULL),LoopTime,4,84111047598,84111047598,0,0,0
+STAT,(NULL),MeminfoPost,4,1539,513,513,513,0
+STAT,(NULL),MeminfoPre,4,1539,513,513,513,0
+STAT,(NULL),NumaPost,4,4762,3011,807,617,327
+STAT,(NULL),PopTime,4,30585329585,10266856992,9969344839,10349127754,0
+STAT,(NULL),PushTime,4,103423323548,34497895681,34276817361,34648610506,0
+STAT,(NULL),RusageSys,4,4000,4000,0,0,0
+STAT,(NULL),RusageUser,4,111712000,111712000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,84111866416,84111866416,0,0,0
+STAT,(NULL),TotalTime,4,100093826500,100093826500,0,0,0
+STAT,(NULL),UserTime,4,87684560732,29012480952,30092250340,28579829440,0
+STAT,(NULL),Work,4,245499810649,81833267375,81833271576,81833271698,0
+STAT,(NULL),nBad,4,0,0,0,0,0
+STAT,(NULL),nEmpty,4,5667407,1832796,2066720,1767891,0
+STAT,(NULL),nEmptyPop,4,701421,227158,258815,215448,0
+STAT,(NULL),nOverall,4,67108861,21744763,24861455,20502643,0
+STAT,(NULL),nPop,4,22444622,7268814,8281772,6894036,0
+STAT,(NULL),nPush,4,22444619,7222844,8402524,6819251,0
+STAT,(NULL),nPushInit,4,3,1,1,1,0
+==== BENCHMARK TOOK 46.318
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-multiqueue4  ===
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl multiqueue4 -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/random/r4-2e24.gr
+INFO: Hostname rack-castor
+Read 16777216 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 1
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 8445
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,0,0,0,0,0
+STAT,(NULL),BarrierTime,4,223408,120879,97739,4790,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,208576412,71152505,64886110,72537797,0
+STAT,(NULL),EmptyWork,4,3057781511,1002647833,1047063008,1008070670,0
+STAT,(NULL),GaloisTime,4,20102777092,6820146189,6307814500,6974816403,0
+STAT,(NULL),InitPushTime,4,231946,107397,30681,93868,0
+STAT,(NULL),Iterations,4,22444627,7246256,8213934,6984437,0
+STAT,(NULL),LoopTime,4,83146114063,83146114063,0,0,0
+STAT,(NULL),MeminfoPost,4,1539,513,513,513,0
+STAT,(NULL),MeminfoPre,4,1539,513,513,513,0
+STAT,(NULL),NumaPost,4,4775,3017,812,619,327
+STAT,(NULL),PopTime,4,30332572872,10163175889,9912826722,10256570261,0
+STAT,(NULL),PushTime,4,101901874729,34044474272,33758581451,34098819006,0
+STAT,(NULL),RusageSys,4,0,0,0,0,0
+STAT,(NULL),RusageUser,4,110448000,110448000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,83147137040,83147137040,0,0,0
+STAT,(NULL),TotalTime,4,99504995227,99504995227,0,0,0
+STAT,(NULL),UserTime,4,87129434288,28809406956,29819835956,28500191376,0
+STAT,(NULL),Work,4,242733292461,80911095968,80911099317,80911097176,0
+STAT,(NULL),nBad,4,0,0,0,0,0
+STAT,(NULL),nEmpty,4,5667412,1841421,2060215,1765776,0
+STAT,(NULL),nEmptyPop,4,701449,226463,256709,218277,0
+STAT,(NULL),nOverall,4,67108861,21625060,24610016,20873785,0
+STAT,(NULL),nPop,4,22444627,7246256,8213934,6984437,0
+STAT,(NULL),nPush,4,22444624,7149947,8329693,6964984,0
+STAT,(NULL),nPushInit,4,3,1,1,1,0
+==== BENCHMARK TOOK 45.980

@@ -1,0 +1,500 @@
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-klsm2048  ===
+ERROR: ld.so: object '/specific/disk1/home/adamx/malloc/lib64/libjemalloc.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl klsm2048 -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/random/r4-2e24.gr
+INFO: Hostname rack-castor
+Read 16777216 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 1
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 8445
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,5983252,1685145,2433556,1864551,0
+STAT,(NULL),BarrierTime,4,148212,86936,56368,4908,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,37137498,14203380,8467890,14466228,0
+STAT,(NULL),EmptyWork,4,3563147577,1144723631,1259157320,1159266626,0
+STAT,(NULL),GaloisTime,4,19215865857,6518808616,6164485341,6532571900,0
+STAT,(NULL),InitPushTime,4,105422,32688,12154,60580,0
+STAT,(NULL),Iterations,4,22449262,6926098,8515493,7007671,0
+STAT,(NULL),LoopTime,4,102815006008,102815006008,0,0,0
+STAT,(NULL),MeminfoPost,4,1539,513,513,513,0
+STAT,(NULL),MeminfoPre,4,1539,513,513,513,0
+STAT,(NULL),NumaPost,4,100675,98879,822,647,327
+STAT,(NULL),PopTime,4,87860659907,29701715540,28399149755,29759794612,0
+STAT,(NULL),PushTime,4,104196599601,35142497885,34154363802,34899737914,0
+STAT,(NULL),RusageSys,4,1196000,1196000,0,0,0
+STAT,(NULL),RusageUser,4,136188000,136188000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,103094752848,103094752848,0,0,0
+STAT,(NULL),TotalTime,4,118927584692,118927584692,0,0,0
+STAT,(NULL),UserTime,4,87041007868,28116190228,30652515312,28272302328,0
+STAT,(NULL),Work,4,301914709310,100638240132,100638234850,100638234328,0
+STAT,(NULL),nBad,4,4439,1198,1848,1393,0
+STAT,(NULL),nEmpty,4,5670928,1756229,2157499,1757200,0
+STAT,(NULL),nEmptyPop,4,4278,1565,1157,1556,0
+STAT,(NULL),nOverall,4,67113300,20674840,25434329,21004131,0
+STAT,(NULL),nPop,4,22449262,6926098,8515493,7007671,0
+STAT,(NULL),nPush,4,22449259,6849264,8488385,7111610,0
+STAT,(NULL),nPushInit,4,3,1,1,1,0
+==== BENCHMARK TOOK 54.874
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-klsm2048  ===
+ERROR: ld.so: object '/specific/disk1/home/adamx/malloc/lib64/libjemalloc.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl klsm2048 -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/random/r4-2e24.gr
+INFO: Hostname rack-castor
+Read 16777216 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 1
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 8445
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,5814276,1732491,2226472,1855313,0
+STAT,(NULL),BarrierTime,4,332249,192227,134948,5074,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,35355659,13109452,8437291,13808916,0
+STAT,(NULL),EmptyWork,4,3497721724,1169221102,1219914870,1108585752,0
+STAT,(NULL),GaloisTime,4,18746921369,6291845816,6048998227,6406077326,0
+STAT,(NULL),InitPushTime,4,138192,33124,12037,93031,0
+STAT,(NULL),Iterations,4,22449261,7332844,8288309,6828108,0
+STAT,(NULL),LoopTime,4,101111870047,101111870047,0,0,0
+STAT,(NULL),MeminfoPost,4,1539,513,513,513,0
+STAT,(NULL),MeminfoPre,4,1539,513,513,513,0
+STAT,(NULL),NumaPost,4,101310,99534,829,803,144
+STAT,(NULL),PopTime,4,85651222647,28735194677,27796894118,29119133852,0
+STAT,(NULL),PushTime,4,102635544076,34259764437,33841973382,34533806257,0
+STAT,(NULL),RusageSys,4,1212000,1212000,0,0,0
+STAT,(NULL),RusageUser,4,133772000,133772000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,101351082910,101351082910,0,0,0
+STAT,(NULL),TotalTime,4,117196187464,117196187464,0,0,0
+STAT,(NULL),UserTime,4,86069642601,28409668316,29962585894,27697388391,0
+STAT,(NULL),Work,4,296636666889,98878889087,98878889070,98878888732,0
+STAT,(NULL),nBad,4,4391,1324,1661,1406,0
+STAT,(NULL),nEmpty,4,5670928,1892459,2075068,1703401,0
+STAT,(NULL),nEmptyPop,4,3730,1290,1134,1306,0
+STAT,(NULL),nOverall,4,67113252,21757775,24853241,20502236,0
+STAT,(NULL),nPop,4,22449261,7332844,8288309,6828108,0
+STAT,(NULL),nPush,4,22449258,7224997,8324374,6899887,0
+STAT,(NULL),nPushInit,4,3,1,1,1,0
+==== BENCHMARK TOOK 54.077
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-klsm2048  ===
+ERROR: ld.so: object '/specific/disk1/home/adamx/malloc/lib64/libjemalloc.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl klsm2048 -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/random/r4-2e24.gr
+INFO: Hostname rack-castor
+Read 16777216 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 1
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 8445
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,5705969,1698811,2203265,1803893,0
+STAT,(NULL),BarrierTime,4,422827,196378,179841,46608,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,36916702,11660029,10603839,14652834,0
+STAT,(NULL),EmptyWork,4,3575449302,1181643650,1254762857,1139042795,0
+STAT,(NULL),GaloisTime,4,18848514920,6324943244,6086126392,6437445284,0
+STAT,(NULL),InitPushTime,4,137443,33348,10808,93287,0
+STAT,(NULL),Iterations,4,22449204,7324441,8346734,6778029,0
+STAT,(NULL),LoopTime,4,101473178655,101473178655,0,0,0
+STAT,(NULL),MeminfoPost,4,1539,513,513,513,0
+STAT,(NULL),MeminfoPre,4,1539,513,513,513,0
+STAT,(NULL),NumaPost,4,100792,99031,830,605,326
+STAT,(NULL),PopTime,4,86144837591,28888212307,27970084334,29286540950,0
+STAT,(NULL),PushTime,4,102923453303,34295909592,33800949031,34826594680,0
+STAT,(NULL),RusageSys,4,1160000,1160000,0,0,0
+STAT,(NULL),RusageUser,4,134384000,134384000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,101818652427,101818652427,0,0,0
+STAT,(NULL),TotalTime,4,118191543768,118191543768,0,0,0
+STAT,(NULL),UserTime,4,86336770427,28586279185,30166122162,27584369080,0
+STAT,(NULL),Work,4,297866288752,99288794706,99288747932,99288746114,0
+STAT,(NULL),nBad,4,4309,1286,1695,1328,0
+STAT,(NULL),nEmpty,4,5670893,1845352,2100114,1725427,0
+STAT,(NULL),nEmptyPop,4,3987,1353,1261,1373,0
+STAT,(NULL),nOverall,4,67113170,21916259,24985181,20211730,0
+STAT,(NULL),nPop,4,22449204,7324441,8346734,6778029,0
+STAT,(NULL),nPush,4,22449201,7272134,8416034,6761033,0
+STAT,(NULL),nPushInit,4,3,1,1,1,0
+==== BENCHMARK TOOK 54.606
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-klsm2048  ===
+ERROR: ld.so: object '/specific/disk1/home/adamx/malloc/lib64/libjemalloc.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl klsm2048 -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/random/r4-2e24.gr
+INFO: Hostname rack-castor
+Read 16777216 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 1
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 8445
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,4540403,1342367,1714689,1483347,0
+STAT,(NULL),BarrierTime,4,230665,145632,82417,2616,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,36446649,13104467,9825469,13516713,0
+STAT,(NULL),EmptyWork,4,3539697571,1166599736,1230538397,1142559438,0
+STAT,(NULL),GaloisTime,4,18922236237,6399384903,6102691676,6420159658,0
+STAT,(NULL),InitPushTime,4,100702,28008,11198,61496,0
+STAT,(NULL),Iterations,4,22448669,7158892,8361342,6928435,0
+STAT,(NULL),LoopTime,4,101564969155,101564969155,0,0,0
+STAT,(NULL),MeminfoPost,4,1539,513,513,513,0
+STAT,(NULL),MeminfoPre,4,1539,513,513,513,0
+STAT,(NULL),NumaPost,4,100983,99196,833,628,326
+STAT,(NULL),PopTime,4,86287138689,29048972809,27995978918,29242186962,0
+STAT,(NULL),PushTime,4,102842230023,34387805235,33802431656,34651993132,0
+STAT,(NULL),RusageSys,4,1120000,1120000,0,0,0
+STAT,(NULL),RusageUser,4,134532000,134532000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,101868701214,101868701214,0,0,0
+STAT,(NULL),TotalTime,4,118232839954,118232839954,0,0,0
+STAT,(NULL),UserTime,4,86478141281,28352762978,30227164488,27898213815,0
+STAT,(NULL),Work,4,298106220133,99368735888,99368736107,99368748138,0
+STAT,(NULL),nBad,4,3816,1133,1457,1226,0
+STAT,(NULL),nEmpty,4,5670476,1810728,2100549,1759199,0
+STAT,(NULL),nEmptyPop,4,3968,1440,1202,1326,0
+STAT,(NULL),nOverall,4,67112677,21383102,25049089,20680486,0
+STAT,(NULL),nPop,4,22448669,7158892,8361342,6928435,0
+STAT,(NULL),nPush,4,22448666,7114454,8447326,6886886,0
+STAT,(NULL),nPushInit,4,3,1,1,1,0
+==== BENCHMARK TOOK 54.583
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-klsm2048  ===
+ERROR: ld.so: object '/specific/disk1/home/adamx/malloc/lib64/libjemalloc.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl klsm2048 -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/random/r4-2e24.gr
+INFO: Hostname rack-castor
+Read 16777216 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 1
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 8445
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,4414420,1317445,1745574,1351401,0
+STAT,(NULL),BarrierTime,4,119672,59761,55946,3965,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,36952071,11350320,12162459,13439292,0
+STAT,(NULL),EmptyWork,4,3508731452,1109280769,1239156266,1160294417,0
+STAT,(NULL),GaloisTime,4,18944992123,6397455514,6108663659,6438872950,0
+STAT,(NULL),InitPushTime,4,140256,68855,11685,59716,0
+STAT,(NULL),Iterations,4,22448728,7045302,8302883,7100543,0
+STAT,(NULL),LoopTime,4,101725654557,101725654557,0,0,0
+STAT,(NULL),MeminfoPost,4,1539,513,513,513,0
+STAT,(NULL),MeminfoPre,4,1539,513,513,513,0
+STAT,(NULL),NumaPost,4,100783,99013,1009,617,144
+STAT,(NULL),PopTime,4,85476248144,28818854276,27837634133,28819759735,0
+STAT,(NULL),PushTime,4,103690618058,34907521202,34036861404,34746235452,0
+STAT,(NULL),RusageSys,4,1060000,1060000,0,0,0
+STAT,(NULL),RusageUser,4,134628000,134628000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,101956811930,101956811930,0,0,0
+STAT,(NULL),TotalTime,4,118260726072,118260726072,0,0,0
+STAT,(NULL),UserTime,4,86524119506,28149424747,30159409557,28215285202,0
+STAT,(NULL),Work,4,298181948055,99393982786,99393982757,99393982512,0
+STAT,(NULL),nBad,4,3834,1136,1525,1173,0
+STAT,(NULL),nEmpty,4,5670530,1781938,2057436,1831156,0
+STAT,(NULL),nEmptyPop,4,4064,1412,1322,1330,0
+STAT,(NULL),nOverall,4,67112695,21055255,24975158,21082282,0
+STAT,(NULL),nPop,4,22448728,7045302,8302883,7100543,0
+STAT,(NULL),nPush,4,22448725,7032533,8442939,6973253,0
+STAT,(NULL),nPushInit,4,3,1,1,1,0
+==== BENCHMARK TOOK 54.607
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-klsm2048  ===
+ERROR: ld.so: object '/specific/disk1/home/adamx/malloc/lib64/libjemalloc.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl klsm2048 -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/random/r4-2e24.gr
+INFO: Hostname rack-castor
+Read 16777216 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 1
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 8445
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,5050937,1719098,1697755,1634084,0
+STAT,(NULL),BarrierTime,4,212123,130102,77029,4992,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,37205093,10969545,10017546,16218002,0
+STAT,(NULL),EmptyWork,4,3504815004,1155065263,1236941314,1112808427,0
+STAT,(NULL),GaloisTime,4,18992955525,6444320022,6020225013,6528410490,0
+STAT,(NULL),InitPushTime,4,108826,35361,12569,60896,0
+STAT,(NULL),Iterations,4,22448757,7305039,8271095,6872623,0
+STAT,(NULL),LoopTime,4,102185537129,102185537129,0,0,0
+STAT,(NULL),MeminfoPost,4,1539,513,513,513,0
+STAT,(NULL),MeminfoPre,4,1539,513,513,513,0
+STAT,(NULL),NumaPost,4,101566,99778,833,628,327
+STAT,(NULL),PopTime,4,86316828494,29098280022,27746087010,29472461462,0
+STAT,(NULL),PushTime,4,104361857568,34495756627,35034207451,34831893490,0
+STAT,(NULL),RusageSys,4,1160000,1160000,0,0,0
+STAT,(NULL),RusageUser,4,135340000,135340000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,102427892795,102427892795,0,0,0
+STAT,(NULL),TotalTime,4,117785318746,117785318746,0,0,0
+STAT,(NULL),UserTime,4,86760817762,28787100862,29944015007,28029701893,0
+STAT,(NULL),Work,4,299974756721,99991585077,99991585744,99991585900,0
+STAT,(NULL),nBad,4,3974,1372,1325,1277,0
+STAT,(NULL),nEmpty,4,5670522,1849855,2081135,1739532,0
+STAT,(NULL),nEmptyPop,4,3877,1319,1223,1335,0
+STAT,(NULL),nOverall,4,67112835,21817429,24759537,20535869,0
+STAT,(NULL),nPop,4,22448757,7305039,8271095,6872623,0
+STAT,(NULL),nPush,4,22448754,7267429,8317165,6864160,0
+STAT,(NULL),nPushInit,4,3,1,1,1,0
+==== BENCHMARK TOOK 54.440
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-klsm2048  ===
+ERROR: ld.so: object '/specific/disk1/home/adamx/malloc/lib64/libjemalloc.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl klsm2048 -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/random/r4-2e24.gr
+INFO: Hostname rack-castor
+Read 16777216 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 1
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 8445
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,4358512,1272668,1777033,1308811,0
+STAT,(NULL),BarrierTime,4,124216,75339,43444,5433,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,39030065,13222395,11101416,14706254,0
+STAT,(NULL),EmptyWork,4,3491709004,1133065902,1222383253,1136259849,0
+STAT,(NULL),GaloisTime,4,18829329476,6341583352,6100144376,6387601748,0
+STAT,(NULL),InitPushTime,4,94725,32620,11304,50801,0
+STAT,(NULL),Iterations,4,22448684,7182272,8371886,6894526,0
+STAT,(NULL),LoopTime,4,102913969561,102913969561,0,0,0
+STAT,(NULL),MeminfoPost,4,1539,513,513,513,0
+STAT,(NULL),MeminfoPre,4,1539,513,513,513,0
+STAT,(NULL),NumaPost,4,100574,98813,830,605,326
+STAT,(NULL),PopTime,4,86213368174,28973302464,28149380228,29090685482,0
+STAT,(NULL),PushTime,4,107285717367,35976226869,34966453446,36343037052,0
+STAT,(NULL),RusageSys,4,1176000,1176000,0,0,0
+STAT,(NULL),RusageUser,4,136344000,136344000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,103147697430,103147697430,0,0,0
+STAT,(NULL),TotalTime,4,119516549064,119516549064,0,0,0
+STAT,(NULL),UserTime,4,86356607364,28301186036,30289124345,27766296983,0
+STAT,(NULL),Work,4,302216115913,100738705191,100738705270,100738705452,0
+STAT,(NULL),nBad,4,3797,1123,1547,1127,0
+STAT,(NULL),nEmpty,4,5670497,1816422,2112344,1741731,0
+STAT,(NULL),nEmptyPop,4,3855,1315,1266,1274,0
+STAT,(NULL),nOverall,4,67112658,21460906,25037978,20613774,0
+STAT,(NULL),nPop,4,22448684,7182272,8371886,6894526,0
+STAT,(NULL),nPush,4,22448681,7250919,8443406,6754356,0
+STAT,(NULL),nPushInit,4,3,1,1,1,0
+==== BENCHMARK TOOK 55.187
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-klsm2048  ===
+ERROR: ld.so: object '/specific/disk1/home/adamx/malloc/lib64/libjemalloc.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl klsm2048 -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/random/r4-2e24.gr
+INFO: Hostname rack-castor
+Read 16777216 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 1
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 8445
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,5672792,1866709,2200197,1605886,0
+STAT,(NULL),BarrierTime,4,173676,93252,75796,4628,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,55231030,14788240,8597919,31844871,0
+STAT,(NULL),EmptyWork,4,3548908819,1179927183,1239019595,1129962041,0
+STAT,(NULL),GaloisTime,4,19135470993,6448772950,6150689746,6536008297,0
+STAT,(NULL),InitPushTime,4,104566,31594,11892,61080,0
+STAT,(NULL),Iterations,4,22449461,7119858,8411543,6918060,0
+STAT,(NULL),LoopTime,4,102512430132,102512430132,0,0,0
+STAT,(NULL),MeminfoPost,4,1539,513,513,513,0
+STAT,(NULL),MeminfoPre,4,1539,513,513,513,0
+STAT,(NULL),NumaPost,4,99964,98171,820,646,327
+STAT,(NULL),PopTime,4,86640162783,29051065165,28109842662,29479254956,0
+STAT,(NULL),PushTime,4,104557934570,35318780649,34273883084,34965270837,0
+STAT,(NULL),RusageSys,4,1188000,1188000,0,0,0
+STAT,(NULL),RusageUser,4,135712000,135712000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,102747061315,102747061315,0,0,0
+STAT,(NULL),TotalTime,4,119540662258,119540662258,0,0,0
+STAT,(NULL),UserTime,4,86914444907,28270716867,30502017998,28141710042,0
+STAT,(NULL),Work,4,300852425665,100284142323,100284141910,100284141432,0
+STAT,(NULL),nBad,4,4545,1487,1755,1303,0
+STAT,(NULL),nEmpty,4,5671097,1837919,2101806,1731372,0
+STAT,(NULL),nEmptyPop,4,4335,1523,1380,1432,0
+STAT,(NULL),nOverall,4,67113406,21128708,25239613,20745085,0
+STAT,(NULL),nPop,4,22449461,7119858,8411543,6918060,0
+STAT,(NULL),nPush,4,22449458,6926363,8593259,6929836,0
+STAT,(NULL),nPushInit,4,3,1,1,1,0
+==== BENCHMARK TOOK 55.136
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-klsm2048  ===
+ERROR: ld.so: object '/specific/disk1/home/adamx/malloc/lib64/libjemalloc.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl klsm2048 -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/random/r4-2e24.gr
+INFO: Hostname rack-castor
+Read 16777216 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 1
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 8445
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,4583528,1348742,1760039,1474747,0
+STAT,(NULL),BarrierTime,4,180570,97881,77609,5080,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,41606210,15031462,9032558,17542190,0
+STAT,(NULL),EmptyWork,4,3475052470,1160882579,1192113403,1122056488,0
+STAT,(NULL),GaloisTime,4,18420466363,6186883791,6002663273,6230919299,0
+STAT,(NULL),InitPushTime,4,100359,28840,11427,60092,0
+STAT,(NULL),Iterations,4,22448869,7229412,8166211,7053246,0
+STAT,(NULL),LoopTime,4,100104578022,100104578022,0,0,0
+STAT,(NULL),MeminfoPost,4,1539,513,513,513,0
+STAT,(NULL),MeminfoPre,4,1539,513,513,513,0
+STAT,(NULL),NumaPost,4,100974,99200,1011,619,144
+STAT,(NULL),PopTime,4,83944698591,28150609417,27489104309,28304984865,0
+STAT,(NULL),PushTime,4,102704734860,34491799878,33661572693,34551362289,0
+STAT,(NULL),RusageSys,4,1112000,1112000,0,0,0
+STAT,(NULL),RusageUser,4,132636000,132636000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,100338949929,100338949929,0,0,0
+STAT,(NULL),TotalTime,4,114918923366,114918923366,0,0,0
+STAT,(NULL),UserTime,4,85335225294,27968720755,29619441876,27747062663,0
+STAT,(NULL),Work,4,293922050907,97974017322,97974016939,97974016646,0
+STAT,(NULL),nBad,4,3927,1169,1529,1229,0
+STAT,(NULL),nEmpty,4,5670655,1872072,2029831,1768752,0
+STAT,(NULL),nEmptyPop,4,4616,1738,1266,1612,0
+STAT,(NULL),nOverall,4,67112788,21430577,24546445,21135766,0
+STAT,(NULL),nPop,4,22448869,7229412,8166211,7053246,0
+STAT,(NULL),nPush,4,22448866,7017437,8318894,7112535,0
+STAT,(NULL),nPushInit,4,3,1,1,1,0
+==== BENCHMARK TOOK 53.078
+==== BENCHMARK START ===
+==== PARAMS kernel=4.9.5-64-net1 malloc=libc hostname=rack-castor threads=3 delta=4 prog=sssp-klsm2048  ===
+ERROR: ld.so: object '/specific/disk1/home/adamx/malloc/lib64/libjemalloc.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+Galois Benchmark Suite v2.2.1 (r0)
+Copyright (C) 2014 The University of Texas at Austin
+http://iss.ices.utexas.edu/galois/
+
+application: Single Source Shortest Path
+Computes the shortest path from a source node to all nodes in a directed graph using a modified chaotic iteration algorithm
+http://iss.ices.utexas.edu/?p=projects/galois/benchmarks/single_source_shortest_path
+
+INFO: CommandLine ./build/debug/apps/sssp/sssp -noverify -t 3 -delta 4 -wl klsm2048 -startNode 0 /specific/disk1/home/mad/Galois-PQ/inputs/random/r4-2e24.gr
+INFO: Hostname rack-castor
+Read 16777216 nodes
+Running Asynchronous with CAS version
+INFO: Using delta-step of 1
+WARNING: Performance varies considerably due to delta parameter.
+WARNING: Do not expect the default to be good for your graph.
+Node 1 has distance 8445
+STATTYPE,LOOP,CATEGORY,n,sum,T0,T1,T2,T3
+STAT,(NULL),BadWork,4,4279325,1390467,1640481,1248377,0
+STAT,(NULL),BarrierTime,4,198316,128838,67524,1954,0
+STAT,(NULL),ConflictTime,4,0,0,0,0,0
+STAT,(NULL),Conflicts,4,0,0,0,0,0
+STAT,(NULL),EmptyPopTime,4,40884861,13254922,9294210,18335729,0
+STAT,(NULL),EmptyWork,4,3552234785,1186757506,1232123036,1133354243,0
+STAT,(NULL),GaloisTime,4,19296728054,6472729176,6208703715,6615295163,0
+STAT,(NULL),InitPushTime,4,96300,32544,11418,52338,0
+STAT,(NULL),Iterations,4,22448648,7314901,8445881,6687866,0
+STAT,(NULL),LoopTime,4,102920180962,102920180962,0,0,0
+STAT,(NULL),MeminfoPost,4,1539,513,513,513,0
+STAT,(NULL),MeminfoPre,4,1539,513,513,513,0
+STAT,(NULL),NumaPost,4,99639,97878,830,605,326
+STAT,(NULL),PopTime,4,87260298997,29136860711,28271202520,29852235766,0
+STAT,(NULL),PushTime,4,104944353052,35211164053,34369963025,35363225974,0
+STAT,(NULL),RusageSys,4,1056000,1056000,0,0,0
+STAT,(NULL),RusageUser,4,136572000,136572000,0,0,0
+STAT,(NULL),Threads,4,3,3,0,0,0
+STAT,(NULL),Time,4,103176820908,103176820908,0,0,0
+STAT,(NULL),TotalTime,4,118928608087,118928608087,0,0,0
+STAT,(NULL),UserTime,4,87360443709,28797546736,30727028513,27835868460,0
+STAT,(NULL),Work,4,302455254545,100818412824,100818413319,100818428402,0
+STAT,(NULL),nBad,4,3718,1214,1422,1082,0
+STAT,(NULL),nEmpty,4,5670482,1882223,2100513,1687746,0
+STAT,(NULL),nEmptyPop,4,4067,1381,1251,1435,0
+STAT,(NULL),nOverall,4,67112579,21727820,25385181,19999578,0
+STAT,(NULL),nPop,4,22448648,7314901,8445881,6687866,0
+STAT,(NULL),nPush,4,22448645,7124040,8619215,6705390,0
+STAT,(NULL),nPushInit,4,3,1,1,1,0
+==== BENCHMARK TOOK 54.923
